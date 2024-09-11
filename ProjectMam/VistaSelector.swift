@@ -70,7 +70,7 @@ struct VistaSelector: View {
                         
                         Spacer().frame(width: 150) // Espaciador de iconos
                         
-                        NavigationLink(destination: CulturaView()) { // Botón 2
+                        NavigationLink(destination: TraductorView()) { // Botón 2
                             Image(systemName: "book")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)

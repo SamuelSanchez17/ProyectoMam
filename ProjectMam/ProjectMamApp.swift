@@ -16,6 +16,8 @@ struct ProjectMamApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(languageManager) // Pasamos el LanguageManager a toda la app
+            TraductorView()
+                .environmentObject(languageManager)
                         
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D134F6C2C8F9C6B004A79B8 /* TraductorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D134F6B2C8F9C6B004A79B8 /* TraductorView.swift */; };
 		0D136D732C8127270066E64E /* ProjectMamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D722C8127270066E64E /* ProjectMamApp.swift */; };
 		0D136D752C8127270066E64E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D742C8127270066E64E /* ContentView.swift */; };
 		0D136D772C8127280066E64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D136D762C8127280066E64E /* Assets.xcassets */; };
@@ -17,10 +18,19 @@
 		0D136D9D2C8127DC0066E64E /* VistaSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D9C2C8127DC0066E64E /* VistaSelector.swift */; };
 		0D583F842C8BACE3009B58E7 /* CulturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D583F832C8BACE3009B58E7 /* CulturaView.swift */; };
 		0D80397C2C87A6DD00BAFA32 /* InicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80397B2C87A6DD00BAFA32 /* InicioView.swift */; };
+		0DC125E02C920DDF001F5D37 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC125DF2C920DDF001F5D37 /* TranslationService.swift */; };
+		0DC125E22C920F93001F5D37 /* translations.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DC125E12C920F93001F5D37 /* translations.json */; };
 		0DFACDC22C8A335200DA9269 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DFACDC12C8A335200DA9269 /* en.json */; };
 		0DFACDC42C8A336300DA9269 /* es.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DFACDC32C8A336300DA9269 /* es.json */; };
 		0DFACDC62C8A337100DA9269 /* mam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DFACDC52C8A337100DA9269 /* mam.json */; };
 		0DFACDC82C8A33A600DA9269 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFACDC72C8A33A600DA9269 /* LanguageManager.swift */; };
+		0DFEDC952C920A2B00EF63DB /* AbecedarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC942C920A2B00EF63DB /* AbecedarioView.swift */; };
+		0DFEDC972C920AB100EF63DB /* DiccionarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC962C920AB100EF63DB /* DiccionarioView.swift */; };
+		0DFEDC992C920B4C00EF63DB /* FrasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC982C920B4C00EF63DB /* FrasesView.swift */; };
+		0DFEDC9B2C920B7100EF63DB /* GastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC9A2C920B7100EF63DB /* GastroView.swift */; };
+		0DFEDC9D2C920BA800EF63DB /* LeccionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC9C2C920BA800EF63DB /* LeccionView.swift */; };
+		0DFEDC9F2C920BE100EF63DB /* PalabrasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDC9E2C920BE100EF63DB /* PalabrasView.swift */; };
+		0DFEDCA12C920C1100EF63DB /* TradicionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFEDCA02C920C1100EF63DB /* TradicionesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D134F6B2C8F9C6B004A79B8 /* TraductorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraductorView.swift; sourceTree = "<group>"; };
 		0D136D6F2C8127270066E64E /* ProjectMam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D136D722C8127270066E64E /* ProjectMamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMamApp.swift; sourceTree = "<group>"; };
 		0D136D742C8127270066E64E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,10 +65,19 @@
 		0D136D9C2C8127DC0066E64E /* VistaSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaSelector.swift; sourceTree = "<group>"; };
 		0D583F832C8BACE3009B58E7 /* CulturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturaView.swift; sourceTree = "<group>"; };
 		0D80397B2C87A6DD00BAFA32 /* InicioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioView.swift; sourceTree = "<group>"; };
+		0DC125DF2C920DDF001F5D37 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		0DC125E12C920F93001F5D37 /* translations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translations.json; sourceTree = "<group>"; };
 		0DFACDC12C8A335200DA9269 /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		0DFACDC32C8A336300DA9269 /* es.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = es.json; sourceTree = "<group>"; };
 		0DFACDC52C8A337100DA9269 /* mam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mam.json; sourceTree = "<group>"; };
 		0DFACDC72C8A33A600DA9269 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		0DFEDC942C920A2B00EF63DB /* AbecedarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbecedarioView.swift; sourceTree = "<group>"; };
+		0DFEDC962C920AB100EF63DB /* DiccionarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiccionarioView.swift; sourceTree = "<group>"; };
+		0DFEDC982C920B4C00EF63DB /* FrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrasesView.swift; sourceTree = "<group>"; };
+		0DFEDC9A2C920B7100EF63DB /* GastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastroView.swift; sourceTree = "<group>"; };
+		0DFEDC9C2C920BA800EF63DB /* LeccionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeccionView.swift; sourceTree = "<group>"; };
+		0DFEDC9E2C920BE100EF63DB /* PalabrasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalabrasView.swift; sourceTree = "<group>"; };
+		0DFEDCA02C920C1100EF63DB /* TradicionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradicionesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +137,15 @@
 				0D80397B2C87A6DD00BAFA32 /* InicioView.swift */,
 				0DFACDC72C8A33A600DA9269 /* LanguageManager.swift */,
 				0D583F832C8BACE3009B58E7 /* CulturaView.swift */,
+				0D134F6B2C8F9C6B004A79B8 /* TraductorView.swift */,
+				0DFEDC942C920A2B00EF63DB /* AbecedarioView.swift */,
+				0DFEDC962C920AB100EF63DB /* DiccionarioView.swift */,
+				0DFEDC982C920B4C00EF63DB /* FrasesView.swift */,
+				0DFEDC9A2C920B7100EF63DB /* GastroView.swift */,
+				0DFEDC9C2C920BA800EF63DB /* LeccionView.swift */,
+				0DFEDC9E2C920BE100EF63DB /* PalabrasView.swift */,
+				0DFEDCA02C920C1100EF63DB /* TradicionesView.swift */,
+				0DC125DF2C920DDF001F5D37 /* TranslationService.swift */,
 			);
 			path = ProjectMam;
 			sourceTree = "<group>";
@@ -149,6 +178,7 @@
 		0DFACDBF2C8A2DE100DA9269 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				0DC125E12C920F93001F5D37 /* translations.json */,
 				0DFACDC52C8A337100DA9269 /* mam.json */,
 				0DFACDC32C8A336300DA9269 /* es.json */,
 				0DFACDC12C8A335200DA9269 /* en.json */,
@@ -263,6 +293,7 @@
 				0DFACDC22C8A335200DA9269 /* en.json in Resources */,
 				0D136D7A2C8127280066E64E /* Preview Assets.xcassets in Resources */,
 				0D136D772C8127280066E64E /* Assets.xcassets in Resources */,
+				0DC125E22C920F93001F5D37 /* translations.json in Resources */,
 				0DFACDC62C8A337100DA9269 /* mam.json in Resources */,
 				0DFACDC42C8A336300DA9269 /* es.json in Resources */,
 			);
@@ -289,11 +320,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DFEDC9D2C920BA800EF63DB /* LeccionView.swift in Sources */,
 				0D136D752C8127270066E64E /* ContentView.swift in Sources */,
+				0DFEDCA12C920C1100EF63DB /* TradicionesView.swift in Sources */,
+				0DFEDC952C920A2B00EF63DB /* AbecedarioView.swift in Sources */,
 				0D80397C2C87A6DD00BAFA32 /* InicioView.swift in Sources */,
+				0DFEDC972C920AB100EF63DB /* DiccionarioView.swift in Sources */,
+				0DFEDC9F2C920BE100EF63DB /* PalabrasView.swift in Sources */,
 				0D136D9D2C8127DC0066E64E /* VistaSelector.swift in Sources */,
+				0D134F6C2C8F9C6B004A79B8 /* TraductorView.swift in Sources */,
+				0DFEDC992C920B4C00EF63DB /* FrasesView.swift in Sources */,
 				0D583F842C8BACE3009B58E7 /* CulturaView.swift in Sources */,
+				0DC125E02C920DDF001F5D37 /* TranslationService.swift in Sources */,
 				0D136D732C8127270066E64E /* ProjectMamApp.swift in Sources */,
+				0DFEDC9B2C920B7100EF63DB /* GastroView.swift in Sources */,
 				0DFACDC82C8A33A600DA9269 /* LanguageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
