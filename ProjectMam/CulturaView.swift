@@ -1,17 +1,22 @@
 import SwiftUI
 
 struct CulturaView: View {
+    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     let buttonSize: CGFloat = 170
     let spacing: CGFloat = 10 // Espacio adicional entre los botones
     let imageScale: CGFloat = 0.38 // Factor de escala para las imágenes
-    let buttons = [
-        (imageName: "Micro", text: "Musica", color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { print("Botón 1 presionado") }), // Azul
-        (imageName: "Dress", text: "Vestimenta", color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { print("Botón 2 presionado") }), // Verde
-        (imageName: "Casa", text: "Arquitectura", color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { print("Botón 3 presionado") }), // Rojo
-        (imageName: "Fork", text: "Gastronomia", color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { print("Botón 4 presionado") }), // Naranja
-        (imageName: "Trad", text: "Tradiciones", color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { print("Botón 5 presionado") }), // Púrpura
-        (imageName: "Tic", text: "Juegos", color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { print("Botón 6 presionado") }) // Rojo anaranjado
-    ]
+    
+    // Definición de botones usando closures para acceder al texto localizado
+    var buttons: [(imageName: String, text: String, color: Color, action: () -> Void)] {
+        return [
+            (imageName: "Micro", text: languageManager.getLocalizedText(for: "Musica"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { print("Botón 1 presionado") }),
+            (imageName: "Dress", text: languageManager.getLocalizedText(for: "Vestimenta"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { print("Botón 2 presionado") }),
+            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { print("Botón 3 presionado") }),
+            (imageName: "Fork", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { print("Botón 4 presionado") }),
+            (imageName: "Trad", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { print("Botón 5 presionado") }),
+            (imageName: "Tic", text: languageManager.getLocalizedText(for: "Juegos"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { print("Botón 6 presionado") })
+        ]
+    }
     
     @State private var isMenuVisible = false
     
@@ -24,7 +29,7 @@ struct CulturaView: View {
             Text("Aprende más sobre la cultura")
                 .font(.custom("Futura", size: 50))
                 .bold()
-                .foregroundColor(.clear) // Hacemos el color del texto transparente para que se vea el degradado
+                .foregroundColor(.clear)
                 .background(
                     LinearGradient(
                         gradient: Gradient(colors: [Color.white, Color.gray]),
@@ -43,7 +48,7 @@ struct CulturaView: View {
             GeometryReader { geometry in
                 let radius = min(geometry.size.width, geometry.size.height) / 4
                 let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                let adjustedRadius = radius + buttonSize / 2 + spacing // Radio ajustado para incluir el espacio entre botones
+                let adjustedRadius = radius + buttonSize / 2 + spacing
 
                 ZStack {
                     ForEach(0..<buttons.count, id: \.self) { index in
@@ -53,10 +58,10 @@ struct CulturaView: View {
                         
                         Button(action: buttons[index].action) {
                             VStack {
-                                Image(buttons[index].imageName) // Usar imagen en lugar de ícono
-                                    .resizable() // Asegura que la imagen se ajuste al tamaño
-                                    .aspectRatio(contentMode: .fit) // Mantiene la relación de aspecto
-                                    .frame(width: buttonSize * imageScale, height: buttonSize * imageScale) // Ajusta el tamaño de la imagen
+                                Image(buttons[index].imageName)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: buttonSize * imageScale, height: buttonSize * imageScale)
                                 Text(buttons[index].text)
                                     .font(.system(size: 24))
                                     .bold()
@@ -65,10 +70,10 @@ struct CulturaView: View {
                             .background(buttons[index].color)
                             .foregroundColor(.white)
                             .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10) // Sombra para profundidad
+                            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
                             .overlay(
                                 Circle()
-                                    .stroke(Color.white.opacity(0.5), lineWidth: 4) // Borde blanco para resaltar
+                                    .stroke(Color.white.opacity(0.5), lineWidth: 4)
                             )
                         }
                         .position(x: x, y: y)
@@ -77,30 +82,11 @@ struct CulturaView: View {
                 .offset(x:0, y:50)
             }
             .padding()
-            
-            HStack(spacing: 20) {
-                // Botón con flecha a la izquierda
-                Button(action: {
-                    print("Botón de flecha izquierda presionado")
-                    // Acción del botón izquierda
-                }) {
-                    Image(systemName: "arrow.left")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(20)
-                        .frame(width: 60, height: 60)
-                        .background(Color(red: 0.8, green: 0.2, blue: 0.2)) // Color RGB
-                        .clipShape(Circle())
-                        .foregroundColor(.white)
-                }
-                .offset(x: -530, y: -350) // Ajusta el offset para la flecha izquierda
-                
-            }
-            .padding()
         }
     }
 }
 
 #Preview {
     CulturaView()
+        .environmentObject(LanguageManager()) // Asegúrate de inyectar el LanguageManager
 }

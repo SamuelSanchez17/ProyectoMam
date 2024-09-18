@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PalabrasView: View {
+    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     var body: some View {
         ZStack {
             Color(red: 8/255, green: 203/255, blue: 98/255)
@@ -113,21 +114,7 @@ struct PalabrasView: View {
             .offset(x: 0, y: 120)
             
             HStack(spacing: 20) {
-                // Botón con flecha a la izquierda
-                Button(action: {
-                    print("Botón de flecha izquierda presionado")
-                    // Acción del botón izquierda
-                }) {
-                    Image(systemName: "arrow.left")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(20)
-                        .frame(width: 60, height: 60)
-                        .background(Color(red: 0.8, green: 0.2, blue: 0.2)) // Color RGB
-                        .clipShape(Circle())
-                        .foregroundColor(.white)
-                }
-                .offset(x: -500, y: -350) // Ajusta el offset para la flecha izquierda
+               
                 
                 // Botón con flecha a la derecha
                 Button(action: {
@@ -152,4 +139,5 @@ struct PalabrasView: View {
 
 #Preview {
     PalabrasView()
+        .environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
 }

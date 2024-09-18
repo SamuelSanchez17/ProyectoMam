@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DiccionarioView: View {
+    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     @State private var selectedOption: String? = nil
     @State private var selectedOption1: Int = 0 // Estado para la opción seleccionada (0 o 1)
 

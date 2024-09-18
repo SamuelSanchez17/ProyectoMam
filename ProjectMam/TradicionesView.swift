@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TradicionesView: View {
+    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     var body: some View {
         ZStack{
             Color(red: 147/255, green: 0/255, blue: 78/255)
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Text("Aprende más sobre la cultura")
+                Text(languageManager.getLocalizedText(for:"Aprende más sobre la cultura"))
                     .font(.custom("Futura", size: 50))
                     .bold()
                     .foregroundColor(.clear) // Hacemos el color del texto transparente para que se vea el degradado
@@ -25,7 +26,7 @@ struct TradicionesView: View {
                             endPoint: .bottomTrailing
                         )
                         .mask(
-                            Text("Aprende más sobre la cultura")
+                            Text(languageManager.getLocalizedText(for:"Aprende más sobre la cultura"))//TEXTO ACERCA DE LAS TRADICCIONES 
                                 .font(.custom("Futura", size: 50))
                                 .bold()
                         )
@@ -77,4 +78,5 @@ struct TradicionesView: View {
 
 #Preview {
     TradicionesView()
+        .environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
 }

@@ -1,15 +1,9 @@
-//
-//  FrasesView.swift
-//  ProyectoMam
-//
-//  Created by ADMIN UNACH on 10/09/24.
-//
-
 import SwiftUI
 
 struct FrasesView: View {
+    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
+    
     var body: some View {
-        
         ZStack {
             Color(red: 8/255, green: 203/255, blue: 98/255)
                 .edgesIgnoringSafeArea(.all)
@@ -18,38 +12,48 @@ struct FrasesView: View {
                 Image("Avatar")
                     .resizable()
                     .frame(width: 250, height: 250)
-                    .offset(x:-20,y:-110)
+                    .offset(x: -20, y: -110)
 
                 Image("Dialogo")
                     .resizable()
                     .frame(width: 800, height: 300)
-                    .scaleEffect(x: -1, y: 1, anchor: .center) // Aplica el efecto de espejo
+                    .scaleEffect(x: -1, y: 1, anchor: .center)
                     .offset(x: -90, y: -170)
 
                 Button(action: {
-                    // Acción cuando se toca el botón
                     print("Imagen botón tocada")
                 }) {
-                    Image("Bocina") // Asegúrate de reemplazar "Bocina" con el nombre de tu imagen
+                    Image("Bocina")
                         .resizable()
-                        .aspectRatio(contentMode: .fit) // Ajusta la imagen al contenido
-                        .frame(width: 80, height: 80) // Ajusta el tamaño según sea necesario
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80, height: 80)
                 }
-                .buttonStyle(PlainButtonStyle()) // Evita el estilo predeterminado del botón
-                .offset(x: -790, y: -160) // Mueve el botón a la posición deseada
+                .buttonStyle(PlainButtonStyle())
+                .offset(x: -790, y: -160)
             }
-            .offset(x: 80, y:-90) // Ajusta la posición del HStack/
+            .offset(x: 80, y: -90)
             
-            
-            VStack{
-                HStack{
-                    
+            VStack {
+                HStack {
                     Button(action: {
                         print("Botón 1 presionado")
-                        // Acción del primer botón
                     }) {
                         VStack {
-                            Text("Texto 1")
+                            Text(languageManager.getLocalizedText(for: "button1_text")) // Usa el texto localizado
+                        }
+                        .frame(width: 300, height: 120)
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding()
+                    
+                    // Repite esto para los demás botones usando getLocalizedText
+                    Button(action: {
+                        print("Botón 2 presionado")
+                    }) {
+                        VStack {
+                            Text(languageManager.getLocalizedText(for: "button2_text"))
                                 .font(.headline)
                         }
                         .frame(width: 300, height: 120)
@@ -60,26 +64,10 @@ struct FrasesView: View {
                     .padding()
                     
                     Button(action: {
-                        print("Botón 1 presionado")
-                        // Acción del primer botón
+                        print("Botón 3 presionado")
                     }) {
                         VStack {
-                            Text("Texto 1")
-                                .font(.headline)
-                        }
-                        .frame(width: 300, height: 120)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding()
-                    
-                    Button(action: {
-                        print("Botón 1 presionado")
-                        // Acción del primer botón
-                    }) {
-                        VStack {
-                            Text("Texto 1")
+                            Text(languageManager.getLocalizedText(for: "button3_text"))
                                 .font(.headline)
                         }
                         .frame(width: 300, height: 120)
@@ -90,13 +78,12 @@ struct FrasesView: View {
                     .padding()
                 }
                 
-                HStack{
+                HStack {
                     Button(action: {
-                        print("Botón 1 presionado")
-                        // Acción del primer botón
+                        print("Botón 4 presionado")
                     }) {
                         VStack {
-                            Text("Texto 1")
+                            Text(languageManager.getLocalizedText(for: "button4_text"))
                                 .font(.headline)
                         }
                         .frame(width: 300, height: 120)
@@ -107,11 +94,10 @@ struct FrasesView: View {
                     .padding()
                     
                     Button(action: {
-                        print("Botón 1 presionado")
-                        // Acción del primer botón
+                        print("Botón 5 presionado")
                     }) {
                         VStack {
-                            Text("Texto 1")
+                            Text(languageManager.getLocalizedText(for: "button5_text"))
                                 .font(.headline)
                         }
                         .frame(width: 300, height: 120)
@@ -121,47 +107,31 @@ struct FrasesView: View {
                     .buttonStyle(PlainButtonStyle())
                     .padding()
                 }
-            }.offset(x:0, y:120)
-            
+            }
+            .offset(x: 0, y: 120)
             
             HStack(spacing: 20) {
-                // Botón con flecha a la izquierda
-                Button(action: {
-                    print("Botón de flecha izquierda presionado")
-                    // Acción del botón izquierda
-                }) {
-                    Image(systemName: "arrow.left")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(20)
-                        .frame(width: 60, height: 60)
-                        .background(Color(red: 0.8, green: 0.2, blue: 0.2)) // Color RGB
-                        .clipShape(Circle())
-                        .foregroundColor(.white)
-                }
-                .offset(x: -500, y: -350) // Ajusta el offset para la flecha izquierda
                 
-                // Botón con flecha a la derecha
                 Button(action: {
                     print("Botón de flecha derecha presionado")
-                    // Acción del botón derecha
                 }) {
                     Image(systemName: "arrow.right")
                         .resizable()
                         .scaledToFit()
                         .padding(20)
                         .frame(width: 60, height: 60)
-                        .background(Color(red: 0.2, green: 0.6, blue: 0.8)) // Color RGB
+                        .background(Color(red: 0.2, green: 0.6, blue: 0.8))
                         .clipShape(Circle())
                         .foregroundColor(.white)
                 }
-                .offset(x: 500, y: 350) // Ajusta el offset para la flecha derecha
+                .offset(x: 500, y: 350)
             }
             .padding()
         }
     }
 }
-   
+
 #Preview {
     FrasesView()
+        .environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
 }
