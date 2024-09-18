@@ -26,7 +26,7 @@ struct CulturaView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
-            Text("Aprende más sobre la cultura")
+            Text(languageManager.getLocalizedText(for:"Cultura"))
                 .font(.custom("Futura", size: 50))
                 .bold()
                 .foregroundColor(.clear)
@@ -37,7 +37,7 @@ struct CulturaView: View {
                         endPoint: .bottomTrailing
                     )
                     .mask(
-                        Text("Aprende más sobre la cultura")
+                        Text(languageManager.getLocalizedText(for:"Cultura"))
                             .font(.custom("Futura", size: 50))
                             .bold()
                     )
