@@ -1,30 +1,23 @@
 import SwiftUI
 
 struct CulturaView: View {
-    
-    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
-    
     let buttonSize: CGFloat = 170
     let spacing: CGFloat = 10 // Espacio adicional entre los botones
     let imageScale: CGFloat = 0.38 // Factor de escala para las imágenes
-    
-    // Mueve la creación del arreglo de botones a una propiedad computada
-    var buttons: [(imageName: String, text: String, color: Color, action: () -> Void)] {
-        return [
-            (imageName: "Micro", text: languageManager.getLocalizedText(for: "MusicaButton"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { print("Botón 1 presionado") }), // Azul
-            (imageName: "Dress", text: languageManager.getLocalizedText(for: "VestimentaButton"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { print("Botón 2 presionado") }), // Verde
-            (imageName: "Casa", text: languageManager.getLocalizedText(for: "ArquitecturaButton"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { print("Botón 3 presionado") }), // Rojo
-            (imageName: "Fork", text: languageManager.getLocalizedText(for: "GastronomiaButton"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { print("Botón 4 presionado") }), // Naranja
-            (imageName: "Trad", text: languageManager.getLocalizedText(for: "TradicionesButton"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { print("Botón 5 presionado") }), // Púrpura
-            (imageName: "Tic", text: languageManager.getLocalizedText(for: "JuegosButton"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { print("Botón 6 presionado") }) // Rojo anaranjado
-        ]
-    }
+    let buttons = [
+        (imageName: "Micro", text: "Musica", color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { print("Botón 1 presionado") }), // Azul
+        (imageName: "Dress", text: "Vestimenta", color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { print("Botón 2 presionado") }), // Verde
+        (imageName: "Casa", text: "Arquitectura", color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { print("Botón 3 presionado") }), // Rojo
+        (imageName: "Fork", text: "Gastronomia", color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { print("Botón 4 presionado") }), // Naranja
+        (imageName: "Trad", text: "Tradiciones", color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { print("Botón 5 presionado") }), // Púrpura
+        (imageName: "Tic", text: "Juegos", color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { print("Botón 6 presionado") }) // Rojo anaranjado
+    ]
     
     @State private var isMenuVisible = false
     
     var body: some View {
         ZStack {
-            Image("Tacana")
+            Image("Volcan")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
@@ -39,8 +32,8 @@ struct CulturaView: View {
                         endPoint: .bottomTrailing
                     )
                     .mask(
-                        Text(languageManager.getLocalizedText(for: "TituloCulturaView"))
-                            .font(.custom("Futura", size: 40))
+                        Text("Aprende más sobre la cultura")
+                            .font(.custom("Futura", size: 50))
                             .bold()
                     )
                 )
@@ -81,7 +74,27 @@ struct CulturaView: View {
                         .position(x: x, y: y)
                     }
                 }
-                .offset(x: 0, y: 50)
+                .offset(x:0, y:50)
+            }
+            .padding()
+            
+            HStack(spacing: 20) {
+                // Botón con flecha a la izquierda
+                Button(action: {
+                    print("Botón de flecha izquierda presionado")
+                    // Acción del botón izquierda
+                }) {
+                    Image(systemName: "arrow.left")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(20)
+                        .frame(width: 60, height: 60)
+                        .background(Color(red: 0.8, green: 0.2, blue: 0.2)) // Color RGB
+                        .clipShape(Circle())
+                        .foregroundColor(.white)
+                }
+                .offset(x: -530, y: -350) // Ajusta el offset para la flecha izquierda
+                
             }
             .padding()
         }
@@ -90,5 +103,4 @@ struct CulturaView: View {
 
 #Preview {
     CulturaView()
-        .environmentObject(LanguageManager()) // Añadimos el environmentObject
 }

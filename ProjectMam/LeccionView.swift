@@ -6,12 +6,12 @@ struct LeccionView: View {
             VStack {
                 // Imagen de fondo principal
                 ZStack {
-                    Image("Rio")
+                    Image("RioCorriendo")
                         .resizable()
                         .aspectRatio(contentMode: .fill) // Ajusta la imagen para que rellene el espacio
                         .frame(width: 1200, height: 1200)
                         .clipped() // Recorta cualquier parte que sobresalga del marco
-
+                    
                     VStack {
                         ZStack {
                             Button(action: {
@@ -28,14 +28,14 @@ struct LeccionView: View {
                                     )
                             }
                             .buttonStyle(PlainButtonStyle()) // Evita el estilo predeterminado del botón
-
+                            
                             Text("Abecedario básico")
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white) // Color del texto para que contraste con el fondo verde
                         }
                         .offset(x: -400, y: -220)
-
+                        
                         ZStack {
                             Button(action: {
                                 // Acción cuando se toca el botón
@@ -51,14 +51,14 @@ struct LeccionView: View {
                                     )
                             }
                             .buttonStyle(PlainButtonStyle()) // Evita el estilo predeterminado del botón
-
+                            
                             Text("Frases básicas")
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white) // Color del texto para que contraste con el fondo verde
                         }
-                        .offset(x: -310, y: -50)
-
+                        .offset(x: -470, y: -50)
+                        
                         ZStack {
                             Button(action: {
                                 // Acción cuando se toca el botón
@@ -74,14 +74,14 @@ struct LeccionView: View {
                                     )
                             }
                             .buttonStyle(PlainButtonStyle()) // Evita el estilo predeterminado del botón
-
+                            
                             Text("Sonidos")
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white) // Color del texto para que contraste con el fondo verde
                         }
-                        .offset(x: -85, y: 20)
-
+                        .offset(x: -405, y: 80)
+                        
                         ZStack {
                             Button(action: {
                                 // Acción cuando se toca el botón
@@ -97,13 +97,13 @@ struct LeccionView: View {
                                     )
                             }
                             .buttonStyle(PlainButtonStyle()) // Evita el estilo predeterminado del botón
-
+                            
                             Text("Sonidos")
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white) // Color del texto para que contraste con el fondo verde
                         }
-                        .offset(x: 250, y: 0)
+                        .offset(x: -300, y: 160)
                     }
                     .frame(maxWidth: .infinity) // Asegura que el VStack llene el ancho disponible
                     
@@ -129,68 +129,15 @@ struct LeccionView: View {
                 }
                 .background(Color.green) // Asegura que el fondo no oculte contenido
                 .edgesIgnoringSafeArea(.all) // Extiende el fondo hasta los bordes de la pantalla
-
-                // Nueva sección con una segunda imagen de fondo y más elementos
-                ZStack {
-                    Image("NuevaImagen")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 1200, height: 600)
-                        .clipped()
-
-                }
-                .frame(height: 600) // Altura de la nueva sección para asegurar el desplazamiento
             }
             
-            ZStack{
-                Image("Rio")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill) // Ajusta la imagen para que rellene el espacio
-                    .frame(width: 1200, height: 1200)
-                    .clipped() // Recorta cualquier parte que sobresalga del marco
-                    .scaleEffect(x: -1, y: 1, anchor: .center) // Aplica el efecto de espejo
-                    .offset(x:0,y:-620)
-                
-                VStack {
-                    // Agrega más elementos aquí
-                    Text("Nueva Sección")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-
-                    Button(action: {
-                        // Acción para el nuevo botón
-                        print("Nuevo botón tocado")
-                    }) {
-                        Circle()
-                            .frame(width: 180, height: 180)
-                            .foregroundColor(.blue)
-                            .shadow(color: .gray, radius: 10, x: 0, y: 5) // Sombra del círculo
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.black, lineWidth: 3) // Contorno negro
-                            )
-                            .overlay(
-                                Text("Nuevo")
-                                    .font(.custom("Futura", size: 15))
-                                    .bold()
-                                    .foregroundColor(.white)
-                            )
-                    }
-                }
-                .frame(maxWidth: .infinity) // Asegura que el VStack llene el ancho disponible
-
-            }
         }
-        .background(Color.clear) // Asegura que el fondo no oculte contenido
-        .edgesIgnoringSafeArea(.all) // Extiende el fondo hasta los bordes de la pantalla
-        
-        
     }
 }
+    
+    struct LeccionView_Previews: PreviewProvider {
+        static var previews: some View {
+            LeccionView()
+        }
+    }
 
-struct LeccionView_Previews: PreviewProvider {
-    static var previews: some View {
-        LeccionView()
-    }
-}
