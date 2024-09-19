@@ -2,19 +2,16 @@ import SwiftUI
 
 struct VistaSelector: View {
     @State private var isMenuVisible = false
-    @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
+    @EnvironmentObject var languageManager: LanguageManager
 
     var body: some View {
         NavigationView {
             ZStack {
-                // Color de fondo verde
                 Color.green
-                    .edgesIgnoringSafeArea(.all) // Ocupa toda la pantalla
+                    .edgesIgnoringSafeArea(.all)
 
-                // Contenido principal
                 ScrollView {
                     VStack {
-                        // Parte superior con el título y la imagen representativa
                         VStack {
                             HStack {
                                 Button(action: {
@@ -48,37 +45,31 @@ struct VistaSelector: View {
                                     )
                                 )
                                 .shadow(color: .black, radius: 10, x: 0, y: 5)
-                                .offset(x:0, y:0)
+                                .offset(x: 0, y: -50)
 
-                            Text("""
-                            Este es un párrafo de ejemplo que habla sobre la cultura. 
-                            Aquí puedes incluir información detallada y interesante para el lector. 
+                            // Cuadro deslizante para "Historia Mam"
+                            VStack {
+                                ScrollView {
+                                    Text(languageManager.getLocalizedText(for: "Historia Mam"))
+                                        .padding()
+                                        .frame(maxWidth: .infinity) // Asegura que el texto ocupe todo el ancho
+                                    .font(.custom("Futura", size: 25))
+                                }
 
-                            Este es otro párrafo que continúa con más información. 
-                            Es importante dividir el texto en secciones para facilitar la lectura. 
-
-                            Puedes seguir agregando más párrafos según sea necesario, 
-                            asegurándote de que el contenido sea relevante y atractivo para el usuario.
-                            """)
-                            .font(.body)
-                            .foregroundColor(.black)
-                            .padding() // Añadir algo de padding alrededor del texto
+    
+                            }
+                            .background(Color.white) // Color de fondo del cuadro
+                            .cornerRadius(15) // Bordes redondeados
+                            .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 5) // Sombra
+                            .padding() // Espaciado alrededor del cuadro
+                            .frame(width: 800, height: 600) // Altura máxima del cuadro
+                            .offset(x:0,y:-50)
+                            
 
                             Spacer().frame(height: 20) // Espaciador de iconos
-                            
-                            Circle()
-                                .fill(Color.blue)
-                                .frame(width: 120, height: 120)
-                                .overlay(
-                                    Text("Imagen representativa de la cultura")
-                                        .foregroundColor(.white)
-                                        .font(.caption)
-                                        .multilineTextAlignment(.center)
-                                        .padding()
-                                )
                         }
                         .frame(maxWidth: .infinity)
-                        .background(Color.green) // Mantén el fondo verde para el VStack si deseas
+                        .background(Color.green)
 
                         Spacer()
                         
@@ -95,7 +86,7 @@ struct VistaSelector: View {
                                     .foregroundColor(.white)
                             }
                             
-                            Spacer().frame(width: 150) // Espaciador de iconos
+                            Spacer().frame(width: 150)
                             
                             NavigationLink(destination: TraductorView()) { // Botón 2
                                 Image(systemName: "book")
@@ -127,7 +118,7 @@ struct VistaSelector: View {
                         .padding(.bottom, 40)
                     }
                     .edgesIgnoringSafeArea(.all)
-                    .navigationBarBackButtonHidden(true) // Esconde el botón "< Back"
+                    .navigationBarBackButtonHidden(true)
                 }
                 
                 // Menú deslizable
@@ -147,7 +138,7 @@ struct VistaSelector: View {
                                     .foregroundColor(.white)
                             }
                             
-                            Spacer().frame(height: 40) // Espaciador entre el botón de cierre y las opciones
+                            Spacer().frame(height: 40)
                             
                             NavigationLink(destination: InicioView()) { // Opción del menú 1
                                 Text("Idioma")
@@ -177,15 +168,15 @@ struct VistaSelector: View {
                     
                     Spacer()
                 }
-                .offset(x: isMenuVisible ? 0 : -250) // Deslizar desde la izquierda
-                .animation(.easeInOut(duration: 0.3), value: isMenuVisible) // Aplicando animación suave
+                .offset(x: isMenuVisible ? 0 : -250)
+                .animation(.easeInOut(duration: 0.3), value: isMenuVisible)
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // Esto forzará la vista tipo stack (sin sidebar)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 #Preview {
     VistaSelector()
-        .environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
+        .environmentObject(LanguageManager())
 }

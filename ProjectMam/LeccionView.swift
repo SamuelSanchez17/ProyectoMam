@@ -30,7 +30,7 @@ struct LeccionView: View {
                                             .stroke(Color.black, lineWidth: 3)
                                     )
                                 
-                                Text(languageManager.getLocalizedText(for: "Abecedario básico"))
+                                Text(languageManager.getLocalizedText(for: "Abecedario"))
                                     .font(.custom("Futura", size: 15))
                                     .bold()
                                     .foregroundColor(.white)
@@ -56,7 +56,7 @@ struct LeccionView: View {
                                             .stroke(Color.black, lineWidth: 3)
                                     )
                                 
-                                Text(languageManager.getLocalizedText(for: "Frases básicas"))
+                                Text(languageManager.getLocalizedText(for: "Frases"))
                                     .font(.custom("Futura", size: 15))
                                     .bold()
                                     .foregroundColor(.white)

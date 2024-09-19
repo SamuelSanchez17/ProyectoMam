@@ -1,7 +1,7 @@
 import SwiftUI
 
 class LanguageManager: ObservableObject {
-    @Published var selectedLanguage: String = Locale.current.languageCode ?? "es"
+    @Published var selectedLanguage: String = Locale.current.language.languageCode?.identifier ?? "es"
     private var translations: [String: String] = [:]
 
     init() {
@@ -34,4 +34,3 @@ class LanguageManager: ObservableObject {
         loadLanguage(languageCode: languageCode)
     }
 }
-

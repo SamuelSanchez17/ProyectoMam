@@ -3,13 +3,20 @@
     "Bienvenido": "TzinTaj",
     "COMENZAR": "Tajun",
     "Conocer": "Sa' kumalinaq na'",
-    "TextoCultura": "K'oj na' t'ijay",
-    "IDIOMA": "TU COYOL",
+    "Cultura": "K'oj na' t'ijay",
+    "IDIOMA": "Ta Qyol",
     "TituloCulturaView": "Juyub’á xk’ulub’ a ruk’ux",
-    "MusicaButton": "Wach'och",
-    "VestimentaButton": "K'ojom",
-    "ArquitecturaButton": "K'ayb'anel",
-    "GastronomiaButton": "K'ayik",
-    "TradicionesButton": "K'ayal",
-    "JuegosButton": "Juegosh"
+    "Musica": "Wach'och",
+    "Vestimenta": "K'ojom",
+    "Arquitectura": "K'ayb'anel",
+    "Gastronomia": "K'ayik",
+    "Tradiciones": "K'ayal",
+    "Juegos": "Juegosh",
+    "Aprende más sobre la cultura": "Tz'ib'an naq jun q'an tx'otx' xu'nkilo",
+    "Historia de la cultura Mam": "",
+    "Historia Mam": "Xa xhi jun, q’ayib’ tq’eq xu’k’ay te winak ta naq chajyu’ q’ij tx’otx’ chi mexh naq K’amal te Guatemala, tzaj ta jun ab’ejl jun chi xnaqb’il te winak ta Mam. Ma k’ul naq xnaqb’il jun, tz’a xnaqanb’ajl q’inal naq qyoxh te Tx’otx’ Mam, q’etnaninl atz’a q’al naq na’ la’ib’an ta, qinab’il b’ixhl naqan ta naq winh te aj tz’ananinl te tx’otx’.\n\nAj yb’il tx’otx’ te Mam anik saqw txuj chi poq’il te naq Tx’otx’. K’alaxhl atwa’ q’ijyal saqw, tz’ak’apil te naq a’ninl te b’al saq. U’ban chaj naq tx’aq te naq aj b’iyol saq, ta chib’ixhl te aj ixh naq ja’ matyanil tu’ naqanb’an naq nwanon ta naja chi ni woch’anil wa. Uch’ atuyk te saqw b’ilin taq na tx’eqa naq, kutxb’iyo te winh, jnajlan naq aj naq, q’ayib’ xkum wib’al te yb’il tx’otx’ te nwan te aj tq’anjom te winh.\n\nTe wi’l tx’otx’ te Mam jun yi’lin chi naq tqeqb’il naq naja. Ta naq te txotx’, b’ati q’ajan te i’yij naq iqanb’il te ub’ejh, nak’ib’an te k’al, sub’ naq mole. Ma ku’uk yib’an ta naq win te nyanh; jun tqeq ta jun ab’aj q’inal naq naqwin te txotx’, jun tijan te txotx’ naq aq’unb’an. Ta naq tx’iyil jun tqeq te xtanlan, atqan b’in q’in te b’alaj te saqw wib’al chi tb’ey naq nwaanb’al naja, naq siko jun jun xub’ te txotx’.\n\nAch’an, xa jun jun nk’ab’b’an jun tijan che tnat. Jun txh’b’an, itwa’ b’in naq tx’otx’ tujun wib’aninl winak toqon tu. Tijan txh’anil jun akotaj txoqel naq tq’an chi naq tqeq te tx’aqil naq chi qanaq’i. Tijqaq naq jan txh’aj, jun txi te naq winh txh’ayib’al b’in jun jun xk’utnaq ta jan chi. Ma xu k’uch naq txotx’ txha’, q’ax te winh txha’, naq xa jun tqeqij naq ixtlajl xnaqan te txeqil te Mam.\n\nTx’aj naq winh ta tx’aq’il tx’un jun kach’chi ch’ok naq q’lal xkumb’an chi naq txh’ayil te Mam. Kaibil Balam jun q’och’om chi txh’a’ naq tqeq te winh naq qan te txeqil te Mam. Ma ke q’och’om b’in, xa win te q’ak’apom naq jun tx’aq chi atnaqan te q’ojl, tata Hermelindo, naq na’ qab’an naq ichin txo’n te tx’aq Mam naq tx’ehl te ixhil naq kaqal te xno’n. Tx’on jun tx’aq xa jun mam naq win te txotx’ Mam.\n\nTxanb’an tx’u, winh ta tx’aq Mam ntanoq naq ichib’al. Q’eq te tx’aq Mam naq naq qa’nin qaqib’, tz’a nqan yaqan. Tx’ajn naq nch’aje txha’, ik’ucha nqol yaxan naq tx’aq Mam naq xa yintnaq. Ach’ilixh ke mam, winhl tx’aq naq chi yoqb’an naq tqeq chi wa xan yaq’an win txha’. Jun kyum’chi nqtx’i naq tx’aq Mam tx’anb’an ta jun tx’anb’il naq yaqan b’an chi, naq q’ojl te Mam.\n\nAch’an ku’, ku’n te jan Mam q’asanil naq ichin tx’unb’an ta tx’aq Mam. Tx’aq Mam ntanoq ma xa q’al, ma xa ib’anl qye te tx’aq. Yaq’an, ach’qanil te naq winh xa yaq’an naq jun tx’aq ma ke atnaq te Mam, naq no’yib’al naq ta qye xa ja’k’il te naq Ma.\n\nPero, tujun xkumb’an jun tqeq tx’aq Mam. Tx’aq Mam xa b’eyo naq qa’nin, yaq’an ta win te tx’aq. Atk’ub’aj, atxin nq’ey naq. Txhi chi yaxan winh naq ni tqeq chi naq tx’aq Mam, naq tqeq naq tx’aq jun tx’al naq yujn naq xu q’och’b’an ta qa’bi, naq nq’e tx’aq Mam tqeqb’an naq q’ub’naq naq.\n\nTna jan Mam q’atnaq naq b’an naq kan ya naq tx’aq Mam. Yaxhl ku’n naq te tx’aq Mam, q’anb’al te aj ixhil naq nwaan te tqeq xa ke ixhil txha’ naq ichin yaqanl ta tx’aq Mam te Mam. Nkub’an chi tqeq naq ichin yax nq’eb’al te Mam, naq xkumb’an jun ke tqanil naq jnan q’alb’al ta Mam. Ya’ib’an naq q’ajb’ naq tx’aq Mam xan nqeb’an naq qa’nin.\n\nAch’an jan Mam jun ke q’al te win te xha’nil naq tq’anb’al te q’in te Mam, naq ichin ta. Tuju naq ntas jun tqeq naq tq’i naq tx’an naq tqeq jun tx’i chi jant te naq tx’aq Mam. Te xa ja’ku q’axnaq naq k’anwin naq tq’eql. ¿Naq tjxa’n naq q’antnaq naq tx’aq Mam te xan ntalqan? \nAutores.",
+    "Abecedario": "Txa'nilb'il ab'ejl",
+    "Frases": "Txa'nilb'il chi k'un naja'",
+    "Sonidos": "K'oyon"
+    
 }
