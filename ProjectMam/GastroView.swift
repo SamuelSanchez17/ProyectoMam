@@ -11,7 +11,7 @@ struct GastroView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     var body: some View {
         ZStack{
-            Color(red: 255/255, green: 169/255, blue: 0/255)                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            Color(red: 259/255, green: 169/255, blue: 0/255)                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             VStack {
                 Text(languageManager.getLocalizedText(for:"Aprende más sobre la cultura"))
