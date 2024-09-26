@@ -4,6 +4,7 @@ struct LeccionView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     @State private var navigateToAbecedario = false // Estado para navegar a AbecedarioView
     @State private var navigateToFrases = false // Estado para navegar a FrasesView
+    @State private var navigateToPalabras = false // Estado para navegar a PalabrasView
 
     var body: some View {
         NavigationStack {
@@ -94,7 +95,7 @@ struct LeccionView: View {
                         // Botón Sonidos (amarillo)
                         ZStack {
                             Button(action: {
-                                print("Botón tocado")
+                                navigateToPalabras = true // Activa la navegación a PalabrasView
                             }) {
                                 Circle()
                                     .frame(width: 180, height: 180)
@@ -107,12 +108,15 @@ struct LeccionView: View {
                             }
                             .buttonStyle(PlainButtonStyle())
                             
-                            Text(languageManager.getLocalizedText(for: "Sonidos"))
+                            Text(languageManager.getLocalizedText(for: "Leccion"))
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white)
                         }
                         .offset(x: -300, y: 250) // Ajusta esta posición según la imagen
+                        .navigationDestination(isPresented: $navigateToPalabras) {
+                            PalabrasView() // Navega a PalabrasView
+                        }
                     }
                     .frame(maxWidth: .infinity)
                 }
