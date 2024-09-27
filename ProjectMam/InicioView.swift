@@ -60,7 +60,8 @@ struct InicioView: View {
             .navigationBarItems(trailing:
                 Menu {
                     Button(action: {
-                        languageManager.switchLanguage(to: "en") // Cambiar a inglés
+                        withAnimation{
+                            languageManager.switchLanguage(to: "en")} // Cambiar a inglés
                     }) {
                         HStack {
                             Text("English")
@@ -68,7 +69,8 @@ struct InicioView: View {
                         }
                     }
                     Button(action: {
-                        languageManager.switchLanguage(to: "es") // Cambiar a español
+                        withAnimation{
+                            languageManager.switchLanguage(to: "es")} // Cambiar a español
                     }) {
                         HStack {
                             Text("Español")
@@ -76,7 +78,8 @@ struct InicioView: View {
                         }
                     }
                     Button(action: {
-                        languageManager.switchLanguage(to: "mam") // Cambiar a Mam
+                        withAnimation{
+                            languageManager.switchLanguage(to: "mam")} // Cambiar a Mam
                     }) {
                         HStack {
                             Text("Mam")

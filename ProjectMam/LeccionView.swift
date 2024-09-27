@@ -4,7 +4,9 @@ struct LeccionView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
     @State private var navigateToAbecedario = false // Estado para navegar a AbecedarioView
     @State private var navigateToFrases = false // Estado para navegar a FrasesView
-    @State private var navigateToPalabras = false // Estado para navegar a PalabrasView
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // Control de la navegación
+
 
     var body: some View {
         NavigationStack {
@@ -63,6 +65,7 @@ struct LeccionView: View {
                                     .foregroundColor(.white)
                             }
                         }
+                        
                         .buttonStyle(PlainButtonStyle())
                         .offset(x: -370, y: 50) // Ajusta esta posición según la imagen
                         .navigationDestination(isPresented: $navigateToFrases) {
@@ -95,7 +98,7 @@ struct LeccionView: View {
                         // Botón Sonidos (amarillo)
                         ZStack {
                             Button(action: {
-                                navigateToPalabras = true // Activa la navegación a PalabrasView
+                                print("Botón tocado")
                             }) {
                                 Circle()
                                     .frame(width: 180, height: 180)
@@ -108,21 +111,35 @@ struct LeccionView: View {
                             }
                             .buttonStyle(PlainButtonStyle())
                             
-                            Text(languageManager.getLocalizedText(for: "Leccion"))
+                            Text(languageManager.getLocalizedText(for: "Sonidos"))
                                 .font(.custom("Futura", size: 15))
                                 .bold()
                                 .foregroundColor(.white)
                         }
                         .offset(x: -300, y: 250) // Ajusta esta posición según la imagen
-                        .navigationDestination(isPresented: $navigateToPalabras) {
-                            PalabrasView() // Navega a PalabrasView
-                        }
                     }
+                    .padding()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss() // Funcionalidad para regresar a la vista anterior
+                    }) {
+                        Image("botonRegreso") // Tu asset personalizado para el botón de retroceso
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                        
+                    })
+                    
+                    
                     .frame(maxWidth: .infinity)
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
 
 #Preview {

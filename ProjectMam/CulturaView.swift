@@ -2,30 +2,30 @@ import SwiftUI
 
 struct CulturaView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // Control de la navegación
+
     let buttonSize: CGFloat = 170
     let spacing: CGFloat = 10 // Espacio adicional entre los botones
     let imageScale: CGFloat = 0.38 // Factor de escala para las imágenes
-    
+
     // Definición de botones usando closures para acceder al texto localizado
-    var buttons: [(imageName: String, text: String, color: Color, action: () -> Void)] {
+    var buttons: [(imageName: String, text: String, color: Color, action: () -> AnyView)] {
         return [
-            (imageName: "Micro", text: languageManager.getLocalizedText(for: "Musica"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { print("Botón 1 presionado") }),
-            (imageName: "Dress", text: languageManager.getLocalizedText(for: "Vestimenta"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { print("Botón 2 presionado") }),
-            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { print("Botón 3 presionado") }),
-            (imageName: "Fork", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { print("Botón 4 presionado") }),
-            (imageName: "Trad", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { print("Botón 5 presionado") }),
-            (imageName: "Tic", text: languageManager.getLocalizedText(for: "Juegos"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { print("Botón 6 presionado") })
+            (imageName: "Micro", text: languageManager.getLocalizedText(for: "Musica"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { AnyView(Text("Botón 1 presionado")) }),
+            (imageName: "Dress", text: languageManager.getLocalizedText(for: "Vestimenta"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { AnyView(Text("Botón 2 presionado")) }),
+            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { AnyView(Text("Botón 3 presionado")) }),
+            (imageName: "Fork", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { AnyView(GastroView()) }), // GastroView
+            (imageName: "Trad", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { AnyView(TradicionesView()) }), // TradicionesView
+            (imageName: "Tic", text: languageManager.getLocalizedText(for: "Juegos"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { AnyView(Text("Botón 6 presionado")) })
         ]
     }
-    
-    @State private var isMenuVisible = false
-    
+
     var body: some View {
         ZStack {
             Image("Volcan")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-            
+
             Text(languageManager.getLocalizedText(for:"Cultura"))
                 .font(.custom("Futura", size: 50))
                 .bold()
@@ -56,7 +56,7 @@ struct CulturaView: View {
                         let x = center.x + adjustedRadius * CGFloat(cos(angle))
                         let y = center.y + adjustedRadius * CGFloat(sin(angle))
                         
-                        Button(action: buttons[index].action) {
+                        NavigationLink(destination: buttons[index].action()) {
                             VStack {
                                 Image(buttons[index].imageName)
                                     .resizable()
@@ -83,10 +83,20 @@ struct CulturaView: View {
             }
             .padding()
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss() // Funcionalidad para regresar a la vista anterior
+        }) {
+            Image("botonRegreso") // Tu asset personalizado para el botón de retroceso
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+        })
     }
 }
 
-#Preview {
-    CulturaView()
-        .environmentObject(LanguageManager()) // Asegúrate de inyectar el LanguageManager
+struct CulturaView_Previews: PreviewProvider {
+    static var previews: some View {
+        CulturaView().environmentObject(LanguageManager())
+    }
 }

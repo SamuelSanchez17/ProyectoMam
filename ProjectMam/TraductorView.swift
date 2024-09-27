@@ -2,55 +2,63 @@ import SwiftUI
 
 struct TraductorView: View {
     @EnvironmentObject var languageManager: LanguageManager
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // Control de la navegación
+
     @State private var sourceLanguage = "es"
     @State private var targetLanguage = "en"
     @State private var inputText = ""
     @State private var translatedText = ""
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                Text("Traductor")
-                    .font(.largeTitle)
+        VStack(spacing: 20) {
+            Text("Traductor")
+                .font(.largeTitle)
 
-                Picker("Idioma de origen", selection: $sourceLanguage) {
-                    Text("Español").tag("es")
-                    Text("Inglés").tag("en")
-                    Text("Mam").tag("mam")
-                }
-                .pickerStyle(SegmentedPickerStyle())
+            Picker("Idioma de origen", selection: $sourceLanguage) {
+                Text("Español").tag("es")
+                Text("Inglés").tag("en")
+                Text("Mam").tag("mam")
+            }
+            .pickerStyle(SegmentedPickerStyle())
 
-                Picker("Idioma de destino", selection: $targetLanguage) {
-                    Text("Español").tag("es")
-                    Text("Inglés").tag("en")
-                    Text("Mam").tag("mam")
-                }
-                .pickerStyle(SegmentedPickerStyle())
+            Picker("Idioma de destino", selection: $targetLanguage) {
+                Text("Español").tag("es")
+                Text("Inglés").tag("en")
+                Text("Mam").tag("mam")
+            }
+            .pickerStyle(SegmentedPickerStyle())
 
-                TextField("Ingresa texto aquí", text: $inputText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Ingresa texto aquí", text: $inputText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                Button("Traducir") {
-                    translateText()
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(8)
-
-                Text(translatedText)
-                    .padding()
-                    .frame(minHeight: 100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.blue, lineWidth: 1)
-                    )
-                
-                Spacer()
+            Button("Traducir") {
+                translateText()
             }
             .padding()
+            .foregroundColor(.white)
+            .background(Color.blue)
+            .cornerRadius(8)
+
+            Text(translatedText)
+                .padding()
+                .frame(minHeight: 100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.blue, lineWidth: 1)
+                )
+            
+            Spacer()
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // Asegura uso completo de la pantalla
+        .padding()
+        .navigationBarBackButtonHidden(true) // Oculta el botón <Back predeterminado
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss() // Funcionalidad para regresar a la vista anterior
+        }) {
+            Image("botonRegreso") // Tu asset personalizado para el botón de retroceso
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+        })
     }
 
     private func translateText() {
@@ -73,6 +81,7 @@ struct TraductorView: View {
         return translatedText
     }
 }
+
 
 // Vista previa para el desarrollo
 struct TraductorView_Previews: PreviewProvider {

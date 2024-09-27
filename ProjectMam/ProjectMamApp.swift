@@ -1,3 +1,10 @@
+//
+//  ProjectMamApp.swift
+//  ProjectMam
+//
+//  Created by SAMU on 29/08/24.
+//
+
 import SwiftUI
 
 @main
@@ -7,8 +14,9 @@ struct ProjectMamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            InicioView() // Cambia ContentView() por InicioView()
-                .environmentObject(languageManager) // Pasamos el LanguageManager a toda la app
+            InicioView()
+                .environmentObject(languageManager)
+                        
         }
     }
 }

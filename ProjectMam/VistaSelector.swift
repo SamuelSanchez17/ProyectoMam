@@ -84,8 +84,9 @@ struct VistaSelector: View {
                                     .background(Color.blue)
                                     .clipShape(Circle())
                                     .foregroundColor(.white)
+                                    .navigationBarBackButtonHidden(true)
                             }
-                            
+                            .navigationBarBackButtonHidden(true)
                             Spacer().frame(width: 150)
                             
                             NavigationLink(destination: TraductorView()) { // Botón 2
@@ -97,8 +98,9 @@ struct VistaSelector: View {
                                     .background(Color.blue)
                                     .clipShape(Circle())
                                     .foregroundColor(.white)
+                                
                             }
-                            
+                            .navigationBarBackButtonHidden(true)
                             Spacer().frame(width: 150)
                             
                             NavigationLink(destination: CulturaView()) { // Botón 3

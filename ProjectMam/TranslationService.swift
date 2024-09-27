@@ -29,10 +29,12 @@ class TranslationService {
         }
     }
 
+    
+    /*SAMU
     func translate(_ text: String, from sourceLang: String, to targetLang: String) -> String {
         guard let translations = translations else { return text }
         let normalizedText = text.lowercased()
-
+        
         // Obtener el diccionario del idioma fuente y destino, normalizando claves
         let sourceDictionary = normalizeDictionary(dictionary: translations.dictionary(for: sourceLang))
         let targetDictionary = normalizeDictionary(dictionary: translations.dictionary(for: targetLang))
@@ -48,9 +50,44 @@ class TranslationService {
             print("No se encontró la traducción de '\(intermediateKey)' en '\(targetLang)'")
             return intermediateKey
         }
-
+        
         return finalTranslation
     }
+    SAMU*/
+    ////////////LUISIN/////////////////////
+    
+    func translate(_ text: String, from sourceLang: String, to targetLang: String) -> String {
+        guard let translations = translations else { return text }
+        let normalizedText = text.lowercased().split(separator: " ").map { String($0) }
+        
+        // Obtener el diccionario del idioma fuente y destino, normalizando claves
+        let sourceDictionary = normalizeDictionary(dictionary: translations.dictionary(for: sourceLang))
+        let targetDictionary = normalizeDictionary(dictionary: translations.dictionary(for: targetLang))
+
+        var translatedWords = [String]()
+        
+        // Buscar la palabra en el diccionario del idioma fuente
+        for word in normalizedText{
+            guard let intermediateKey = sourceDictionary[word] else {
+                print("No se encontró '\(word)' en el diccionario de '\(sourceLang)'")
+                translatedWords.append(word) // Devuelve el texto original si no se encuentra la palabra
+                continue
+            }
+            guard let finalWordTranslation = targetDictionary[intermediateKey] else {
+                    print("No se encontró la traducción de '\(intermediateKey)' en '\(targetLang)'")
+                    return intermediateKey
+            }
+            translatedWords.append(finalWordTranslation)
+        }
+        
+        return translatedWords.joined(separator: " ")
+        // Buscar la palabra traducida en el diccionario del idioma destino
+        
+        
+        
+    }
+    
+    ////////////LUISIN/////////////////////
 
 
     private func normalizeDictionary(dictionary: [String: String]) -> [String: String] {
