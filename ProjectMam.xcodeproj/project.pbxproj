@@ -16,6 +16,13 @@
 		0D136D8E2C8127280066E64E /* ProjectMamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D8D2C8127280066E64E /* ProjectMamUITests.swift */; };
 		0D136D902C8127280066E64E /* ProjectMamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D8F2C8127280066E64E /* ProjectMamUITestsLaunchTests.swift */; };
 		0D136D9D2C8127DC0066E64E /* VistaSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D136D9C2C8127DC0066E64E /* VistaSelector.swift */; };
+		0D17BB2B2CB46F9C00761191 /* MusicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB292CB46F9C00761191 /* MusicaView.swift */; };
+		0D17BB2C2CB46F9C00761191 /* FelicitacionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB262CB46F9C00761191 /* FelicitacionView.swift */; };
+		0D17BB2D2CB46F9C00761191 /* FrasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB272CB46F9C00761191 /* FrasesView.swift */; };
+		0D17BB2E2CB46F9C00761191 /* ArquitecturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB252CB46F9C00761191 /* ArquitecturaView.swift */; };
+		0D17BB2F2CB46F9C00761191 /* VestimentaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB2A2CB46F9C00761191 /* VestimentaView.swift */; };
+		0D17BB302CB46F9C00761191 /* AbecedarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB242CB46F9C00761191 /* AbecedarioView.swift */; };
+		0D17BB312CB46F9C00761191 /* JuegosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB282CB46F9C00761191 /* JuegosView.swift */; };
 		0D583F842C8BACE3009B58E7 /* CulturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D583F832C8BACE3009B58E7 /* CulturaView.swift */; };
 		0D80397C2C87A6DD00BAFA32 /* InicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80397B2C87A6DD00BAFA32 /* InicioView.swift */; };
 		0DC125E02C920DDF001F5D37 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC125DF2C920DDF001F5D37 /* TranslationService.swift */; };
@@ -63,6 +70,13 @@
 		0D136D8D2C8127280066E64E /* ProjectMamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMamUITests.swift; sourceTree = "<group>"; };
 		0D136D8F2C8127280066E64E /* ProjectMamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectMamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0D136D9C2C8127DC0066E64E /* VistaSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaSelector.swift; sourceTree = "<group>"; };
+		0D17BB242CB46F9C00761191 /* AbecedarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbecedarioView.swift; sourceTree = "<group>"; };
+		0D17BB252CB46F9C00761191 /* ArquitecturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArquitecturaView.swift; sourceTree = "<group>"; };
+		0D17BB262CB46F9C00761191 /* FelicitacionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FelicitacionView.swift; sourceTree = "<group>"; };
+		0D17BB272CB46F9C00761191 /* FrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrasesView.swift; sourceTree = "<group>"; };
+		0D17BB282CB46F9C00761191 /* JuegosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegosView.swift; sourceTree = "<group>"; };
+		0D17BB292CB46F9C00761191 /* MusicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicaView.swift; sourceTree = "<group>"; };
+		0D17BB2A2CB46F9C00761191 /* VestimentaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestimentaView.swift; sourceTree = "<group>"; };
 		0D583F832C8BACE3009B58E7 /* CulturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturaView.swift; sourceTree = "<group>"; };
 		0D80397B2C87A6DD00BAFA32 /* InicioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioView.swift; sourceTree = "<group>"; };
 		0DC125DF2C920DDF001F5D37 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
@@ -134,6 +148,13 @@
 				0D136D762C8127280066E64E /* Assets.xcassets */,
 				0D136D782C8127280066E64E /* Preview Content */,
 				0D136D9C2C8127DC0066E64E /* VistaSelector.swift */,
+				0D17BB242CB46F9C00761191 /* AbecedarioView.swift */,
+				0D17BB252CB46F9C00761191 /* ArquitecturaView.swift */,
+				0D17BB262CB46F9C00761191 /* FelicitacionView.swift */,
+				0D17BB272CB46F9C00761191 /* FrasesView.swift */,
+				0D17BB282CB46F9C00761191 /* JuegosView.swift */,
+				0D17BB292CB46F9C00761191 /* MusicaView.swift */,
+				0D17BB2A2CB46F9C00761191 /* VestimentaView.swift */,
 				0D80397B2C87A6DD00BAFA32 /* InicioView.swift */,
 				0DFACDC72C8A33A600DA9269 /* LanguageManager.swift */,
 				0D583F832C8BACE3009B58E7 /* CulturaView.swift */,
@@ -324,6 +345,13 @@
 				0D136D752C8127270066E64E /* ContentView.swift in Sources */,
 				0DFEDCA12C920C1100EF63DB /* TradicionesView.swift in Sources */,
 				0DFEDC952C920A2B00EF63DB /* AbecedarioView.swift in Sources */,
+				0D17BB2B2CB46F9C00761191 /* MusicaView.swift in Sources */,
+				0D17BB2C2CB46F9C00761191 /* FelicitacionView.swift in Sources */,
+				0D17BB2D2CB46F9C00761191 /* FrasesView.swift in Sources */,
+				0D17BB2E2CB46F9C00761191 /* ArquitecturaView.swift in Sources */,
+				0D17BB2F2CB46F9C00761191 /* VestimentaView.swift in Sources */,
+				0D17BB302CB46F9C00761191 /* AbecedarioView.swift in Sources */,
+				0D17BB312CB46F9C00761191 /* JuegosView.swift in Sources */,
 				0D80397C2C87A6DD00BAFA32 /* InicioView.swift in Sources */,
 				0DFEDC972C920AB100EF63DB /* DiccionarioView.swift in Sources */,
 				0DFEDC9F2C920BE100EF63DB /* PalabrasView.swift in Sources */,
