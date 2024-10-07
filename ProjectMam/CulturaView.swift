@@ -13,7 +13,7 @@ struct CulturaView: View {
         return [
             (imageName: "Micro", text: languageManager.getLocalizedText(for: "Musica"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { AnyView(MusicaView()) }), //MusicaView
             (imageName: "Dress", text: languageManager.getLocalizedText(for: "Vestimenta"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { AnyView(VestimentaView()) }), // VestimentaView
-            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { AnyView(ArquitecturaView()) }), // ArquitecturaView
+            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { AnyView(ArquitecturaView()) }), // ArquitecturaView 
             (imageName: "Fork", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { AnyView(GastroView()) }), // GastroView
             (imageName: "Trad", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { AnyView(TradicionesView()) }), // TradicionesView
             (imageName: "Tic", text: languageManager.getLocalizedText(for: "Juegos"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { AnyView(JuegosView()) }) // JuegosView

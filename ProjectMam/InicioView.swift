@@ -39,7 +39,7 @@ struct InicioView: View {
                         .foregroundColor(.white)
                         .padding(.bottom, 30)
                     
-                    NavigationLink(destination: VistaSelector().navigationBarBackButtonHidden(true)) { // Asegúrate de ocultar el botón de retroceso aquí
+                    NavigationLink(destination: BookView().navigationBarBackButtonHidden(true)) { // Asegúrate de ocultar el botón de retroceso aquí
                         Text(languageManager.getLocalizedText(for: "COMENZAR"))
                             .bold()
                             .font(.custom("Futura", size: 35))
