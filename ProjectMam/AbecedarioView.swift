@@ -86,6 +86,7 @@ struct AbecedarioView: View {
             }
             .padding()
         }
+        .navigationBarItems(trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
     }
 
     private var currentLetter: String {
@@ -98,4 +99,5 @@ struct AbecedarioView: View {
 
 #Preview {
     AbecedarioView()
+        .environmentObject(LanguageManager())
 }

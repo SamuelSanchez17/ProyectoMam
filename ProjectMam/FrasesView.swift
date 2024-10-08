@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FrasesView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
-    
+
     var body: some View {
         ZStack {
             Color(red: 8/255, green: 203/255, blue: 98/255)
@@ -111,7 +111,6 @@ struct FrasesView: View {
             .offset(x: 0, y: 120)
             
             HStack(spacing: 20) {
-                
                 Button(action: {
                     print("Botón de flecha derecha presionado")
                 }) {
@@ -128,6 +127,7 @@ struct FrasesView: View {
             }
             .padding()
         }
+        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 }
 

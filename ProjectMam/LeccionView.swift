@@ -122,6 +122,7 @@ struct LeccionView: View {
                 }
             }
         }
+        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 }
 

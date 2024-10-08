@@ -11,27 +11,27 @@ struct TraductorView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Traductor")
+            Text(languageManager.getLocalizedText(for: "Traductor")) // Localiza el título
                 .font(.largeTitle)
 
-            Picker("Idioma de origen", selection: $sourceLanguage) {
-                Text("Español").tag("es")
-                Text("Inglés").tag("en")
-                Text("Mam").tag("mam")
+            Picker(languageManager.getLocalizedText(for: "Idioma de origen"), selection: $sourceLanguage) {
+                Text(languageManager.getLocalizedText(for: "Español")).tag("es")
+                Text(languageManager.getLocalizedText(for: "Inglés")).tag("en")
+                Text(languageManager.getLocalizedText(for: "Mam")).tag("mam")
             }
             .pickerStyle(SegmentedPickerStyle())
 
-            Picker("Idioma de destino", selection: $targetLanguage) {
-                Text("Español").tag("es")
-                Text("Inglés").tag("en")
-                Text("Mam").tag("mam")
+            Picker(languageManager.getLocalizedText(for: "Idioma de destino"), selection: $targetLanguage) {
+                Text(languageManager.getLocalizedText(for: "Español")).tag("es")
+                Text(languageManager.getLocalizedText(for: "Inglés")).tag("en")
+                Text(languageManager.getLocalizedText(for: "Mam")).tag("mam")
             }
             .pickerStyle(SegmentedPickerStyle())
 
-            TextField("Ingresa texto aquí", text: $inputText)
+            TextField(languageManager.getLocalizedText(for: "Ingresa texto aquí"), text: $inputText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            Button("Traducir") {
+            Button(languageManager.getLocalizedText(for: "Traducir")) {
                 translateText()
             }
             .padding()
@@ -58,7 +58,7 @@ struct TraductorView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
-        })
+        }, trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 
     private func translateText() {
@@ -81,7 +81,6 @@ struct TraductorView: View {
         return translatedText
     }
 }
-
 
 // Vista previa para el desarrollo
 struct TraductorView_Previews: PreviewProvider {

@@ -175,6 +175,7 @@ struct PalabrasView: View {
         .onAppear {
             loadNextPhrase()
         }
+        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 
     private func loadNextPhrase() {

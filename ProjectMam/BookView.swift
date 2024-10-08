@@ -37,7 +37,7 @@ struct BookView: View {
                         .frame(width: geometry.size.width * frameWidth, height: geometry.size.height * frameHeight)
                         .animation(.easeInOut(duration: 0.5), value: currentPage)
                         .transition(currentPage % 2 == 0 ? .slide : .move(edge: .trailing))
-                        .offset(x: geometry.size.width * 0, y: geometry.size.height * -0.1)  // Puedes ajustar los offsets aquí
+                        .offset(x: geometry.size.width * 0, y: geometry.size.height * -0.1)
                 } else {
                     Text("Cargando historia...")
                         .padding()
@@ -45,7 +45,7 @@ struct BookView: View {
                         .cornerRadius(frameCornerRadius)
                         .shadow(radius: 10)
                         .frame(width: geometry.size.width * frameWidth, height: geometry.size.height * frameHeight)
-                        .offset(x: geometry.size.width * 0.1, y: geometry.size.height * -0.1)  // Ajustar según sea necesario
+                        .offset(x: geometry.size.width * 0.1, y: geometry.size.height * -0.1)
                 }
 
                 // Botones de navegación
@@ -135,11 +135,11 @@ struct BookView: View {
                     }
                     .padding()
                     .background(Color.white.opacity(0.5))  // Fondo para mejorar visibilidad de los botones
-                    .offset(x: 0, y: 0)  // Ajusta la posición de los botones aquí
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .navigationTitle(languageManager.getLocalizedText(for: "Historia de la cultura Mam"))
+            .navigationBarItems(trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
             .onAppear {
                 loadBookPages()
             }

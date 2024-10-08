@@ -1,20 +1,15 @@
-//
-//  JuegosView.swift
-//  ProjectMam
-//
-//  Created by ADMIN UNACH on 02/10/24.
-//
-
 import SwiftUI
 
-struct  VestimentaView: View {
+struct VestimentaView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
+    
     var body: some View {
-        ZStack{
-            Color(red: 12/255, green: 193/255, blue: 62/255)                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(red: 12/255, green: 193/255, blue: 62/255)
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text(languageManager.getLocalizedText(for:"Aprende más sobre la cultura"))
+                Text(languageManager.getLocalizedText(for: "Aprende más sobre la cultura"))
                     .font(.custom("Futura", size: 50))
                     .bold()
                     .foregroundColor(.clear) // Hacemos el color del texto transparente para que se vea el degradado
@@ -25,29 +20,28 @@ struct  VestimentaView: View {
                             endPoint: .bottomTrailing
                         )
                         .mask(
-                            Text(languageManager.getLocalizedText(for:"Aprende más sobre la cultura"))//TEXTO ACERCA DE LA GASTRONOMIA
+                            Text(languageManager.getLocalizedText(for: "Aprende más sobre la cultura")) // TEXTO ACERCA DE LA GASTRONOMIA
                                 .font(.custom("Futura", size: 50))
                                 .bold()
                         )
                     )
-                .shadow(color: .black, radius: 10, x: 0, y: 0)
-            }.offset(x:0 ,y:-350)// Ajusta los parámetros según tus necesidades
+                    .shadow(color: .black, radius: 10, x: 0, y: 0)
+            }
+            .offset(x: 0, y: -350) // Ajusta los parámetros según tus necesidades
             
-            VStack{
-                HStack{
+            VStack {
+                HStack {
                     Text("Texto sobre las tradiciones")
                         .font(.custom("Futura", size: 30))
-                        .offset(x:150, y:0)
+                        .offset(x: 150, y: 0)
                     Circle()
                         .frame(width: 300, height: 300)
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.blue)
                         .overlay(
-                                       Circle() // Círculo adicional para el borde
-                                           .stroke(Color.black, lineWidth: 10) // Color y grosor del borde
-                                   )
-                        .offset(x:220 ,y:-150)
-
-                        
+                            Circle() // Círculo adicional para el borde
+                                .stroke(Color.black, lineWidth: 10) // Color y grosor del borde
+                        )
+                        .offset(x: 220, y: -150)
                 }
             }
                   
@@ -67,14 +61,14 @@ struct  VestimentaView: View {
                         .foregroundColor(.white)
                 }
                 .offset(x: -530, y: -350) // Ajusta el offset para la flecha izquierda
-                
             }
             .padding()
-
         }
+        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 }
- 
+
 #Preview {
-    VestimentaView().environmentObject(LanguageManager())
+    VestimentaView()
+        .environmentObject(LanguageManager())
 }
