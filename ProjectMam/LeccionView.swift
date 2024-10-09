@@ -12,9 +12,10 @@ struct LeccionView: View {
                 ZStack {
                     Image("RioCorriendo")
                         .resizable()
-                        .scaledToFill() // Ajusta la imagen para que llene el espacio
-                        .frame(maxWidth: .infinity, maxHeight: .infinity) // Se asegura que ocupe todo el espacio
-                        .ignoresSafeArea() // Ignora el área segura para llenar toda la pantalla
+                        .scaledToFill() // Ajusta la imagen para llenar todo el espacio
+                        .edgesIgnoringSafeArea(.all) // Ignora las áreas seguras
+                        .frame(width: 1200, height: 1200) // Asegura que ocupe todo el espacio
+                        .clipped() // Recorta cualquier exceso fuera del área visible
                     
                     VStack {
                         // Botón Abecedario básico

@@ -12,7 +12,7 @@ struct LanguageSwitcher: View {
             }) {
                 HStack {
                     Text("English")
-                    Image(systemName: "globe")
+                    Image("Mundo")
                 }
             }
             Button(action: {
@@ -22,7 +22,7 @@ struct LanguageSwitcher: View {
             }) {
                 HStack {
                     Text("Español")
-                    Image(systemName: "globe")
+                    Image("Mundo")
                 }
             }
             Button(action: {
@@ -32,19 +32,22 @@ struct LanguageSwitcher: View {
             }) {
                 HStack {
                     Text("Mam")
-                    Image(systemName: "globe")
+                    Image("Mundo")
                 }
             }
         } label: {
             HStack {
                 Text(languageManager.getLocalizedText(for: "IDIOMA"))
-                Image(systemName: "globe")
+                Image("Mundo")
+                    .resizable()
+                    .frame(width: 25, height: 25)
             }
             .foregroundColor(.white)
             .padding()
             .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-            .cornerRadius(10)
+            .cornerRadius(20)
             .shadow(color: Color.blue.opacity(0.5), radius: 5, x: 0, y: 5)
+            .offset(x:0, y:0)
         }
     }
 }

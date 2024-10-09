@@ -2,8 +2,11 @@ import SwiftUI
 
 struct InicioView: View {
     @EnvironmentObject var languageManager: LanguageManager // Importamos el languageManager
+    @State private var hasFinishedReading: Bool = UserDefaults.standard.bool(forKey: "hasFinishedReading")
     
     var body: some View {
+        
+        
         NavigationView {
             ZStack {
                 Image("Ruinas")
@@ -65,7 +68,7 @@ struct InicioView: View {
                     }) {
                         HStack {
                             Text("English")
-                            Image(systemName: "globe") // Ícono del sistema "globe"
+                            Image("Mundo") // Ícono del sistema "globe"
                         }
                     }
                     Button(action: {
@@ -74,7 +77,7 @@ struct InicioView: View {
                     }) {
                         HStack {
                             Text("Español")
-                            Image(systemName: "globe") // Ícono del sistema "globe"
+                            Image("Mundo") // Ícono del sistema "globe"
                         }
                     }
                     Button(action: {
@@ -83,13 +86,17 @@ struct InicioView: View {
                     }) {
                         HStack {
                             Text("Mam")
-                            Image(systemName: "globe") // Ícono del sistema "globe"
+                            Image("Mundo") // Ícono del sistema "globe"
                         }
                     }
                 } label: {
                     HStack {
                         Text(languageManager.getLocalizedText(for: "IDIOMA"))
-                        Image(systemName: "globe") // Ícono del sistema "globe"
+                        Image("Mundo")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            
+                        
                     }
                     .foregroundColor(.white)
                     .padding()

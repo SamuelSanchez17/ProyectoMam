@@ -73,16 +73,29 @@ struct CulturaView: View {
             }
             .padding()
             .offset(y: 50) // Ajusta la posición vertical de la cuadrícula si es necesario
+            
+            // Botón en la esquina superior izquierda
+            VStack {
+                HStack {
+                    NavigationLink(destination: BookView()) {
+                        Image("Libro")
+                            .resizable()
+                            .opacity(0.90)
+                            .frame(width: 75, height: 75)
+                            .padding()
+                    }
+                    Spacer()
+                }
+                Spacer()
+
+                // Botón Language Switcher al fondo
+                HStack {
+                    LanguageSwitcher()
+            
+                }.offset(x:495, y:-690)
+            }
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Image("botonRegreso")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-        }, trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
     }
 }
 

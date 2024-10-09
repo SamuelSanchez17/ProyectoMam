@@ -62,7 +62,8 @@ struct BookView: View {
                         }) {
                             Text(languageManager.getLocalizedText(for: "BotonAtras"))
                                 .padding()
-                                .frame(width: 150, height: 80)
+                                .frame(width: 200, height: 125)
+                                .font(.system(size: 30))
                                 .background(isBackButtonPressed ? Color.blue : Color.green)
                                 .foregroundColor(.white)
                                 .cornerRadius(8)
@@ -94,8 +95,9 @@ struct BookView: View {
                                     Image(systemName: "flag.fill")
                                 }
                                 .padding()
-                                .frame(width: 150, height: 80)
-                                .background(isNextButtonPressed ? Color.blue : Color.green)
+                                .frame(width: 200, height: 125)
+                                .font(.system(size: 30))
+                                .background(isNextButtonPressed ? Color.blue : Color.red)
                                 .foregroundColor(.white)
                                 .cornerRadius(8)
                                 .shadow(radius: isNextButtonPressed ? 10 : 5)
@@ -110,7 +112,8 @@ struct BookView: View {
                                 }
                             }) {
                                 Text(languageManager.getLocalizedText(for: "BotonSiguiente"))
-                                    .frame(width: 150, height: 80)
+                                    .frame(width: 200, height: 125)
+                                    .font(.system(size: 30))
                                     .background(isNextButtonPressed ? Color.blue : Color.green)
                                     .foregroundColor(.white)
                                     .cornerRadius(8)
@@ -139,6 +142,7 @@ struct BookView: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .navigationTitle(languageManager.getLocalizedText(for: "Historia de la cultura Mam"))
+            .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
             .onAppear {
                 loadBookPages()
@@ -149,11 +153,11 @@ struct BookView: View {
     // Función para cargar el texto y dividirlo en páginas
     private func loadBookPages() {
         let fullStory = languageManager.getLocalizedText(for: "Historia Mam")
-        let pageSize = fullStory.count / 4
+        let pageSize = fullStory.count / 5
         var pages: [String] = []
 
         var currentIndex = fullStory.startIndex
-        for _ in 0..<3 {
+        for _ in 0..<4 {
             let endIndex = fullStory.index(currentIndex, offsetBy: pageSize, limitedBy: fullStory.endIndex) ?? fullStory.endIndex
             let page = String(fullStory[currentIndex..<endIndex])
             pages.append(page)
