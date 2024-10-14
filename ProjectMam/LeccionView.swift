@@ -14,7 +14,7 @@ struct LeccionView: View {
                         .resizable()
                         .scaledToFill() // Ajusta la imagen para llenar todo el espacio
                         .edgesIgnoringSafeArea(.all) // Ignora las áreas seguras
-                        .frame(width: 1200, height: 1200) // Asegura que ocupe todo el espacio
+                        .frame(width: 1300, height: 1200) // Asegura que ocupe todo el espacio
                         .clipped() // Recorta cualquier exceso fuera del área visible
                     
                     VStack {

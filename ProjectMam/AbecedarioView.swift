@@ -24,7 +24,7 @@ struct AbecedarioView: View {
                         .frame(width: 850, height: 400)
                         .scaleEffect(x: -1, y: 1, anchor: .center)
                         .offset(x: -70, y: -170)
-                }
+                }.offset(x:0,y:70)
 
                 HStack {
                     Button(action: {
@@ -44,7 +44,7 @@ struct AbecedarioView: View {
                         .foregroundColor(.white)
                         .offset(x: 50, y: 0)
                 }
-                .offset(x: 20, y: -160)
+                .offset(x: -60, y: -80)
 
             }
             .offset(x: 50, y: 0)
@@ -85,8 +85,12 @@ struct AbecedarioView: View {
                 .offset(x: 450, y: 350)
             }
             .padding()
+            
+            HStack{
+                LanguageSwitcher()
+            }.offset(x:440,y:-330)
         }
-        .navigationBarItems(trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
+        
     }
 
     private var currentLetter: String {

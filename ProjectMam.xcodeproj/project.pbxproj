@@ -26,8 +26,11 @@
 		0D17BB2F2CB46F9C00761191 /* VestimentaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB2A2CB46F9C00761191 /* VestimentaView.swift */; };
 		0D17BB302CB46F9C00761191 /* AbecedarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB242CB46F9C00761191 /* AbecedarioView.swift */; };
 		0D17BB312CB46F9C00761191 /* JuegosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17BB282CB46F9C00761191 /* JuegosView.swift */; };
+		0D27A5BC2CBDA85500362962 /* audio_en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D27A5BB2CBDA85500362962 /* audio_en.mp3 */; };
+		0D27A5BE2CBDAB2200362962 /* audio_mam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D27A5BD2CBDAB2200362962 /* audio_mam.mp3 */; };
 		0D583F842C8BACE3009B58E7 /* CulturaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D583F832C8BACE3009B58E7 /* CulturaView.swift */; };
 		0D80397C2C87A6DD00BAFA32 /* InicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80397B2C87A6DD00BAFA32 /* InicioView.swift */; };
+		0D9B0DF22CBDA4DC00A6F79F /* audio_es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D9B0DF12CBDA4DC00A6F79F /* audio_es.mp3 */; };
 		0DC125E02C920DDF001F5D37 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC125DF2C920DDF001F5D37 /* TranslationService.swift */; };
 		0DC125E22C920F93001F5D37 /* translations.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DC125E12C920F93001F5D37 /* translations.json */; };
 		0DFACDC22C8A335200DA9269 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DFACDC12C8A335200DA9269 /* en.json */; };
@@ -83,8 +86,11 @@
 		0D17BB282CB46F9C00761191 /* JuegosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegosView.swift; sourceTree = "<group>"; };
 		0D17BB292CB46F9C00761191 /* MusicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicaView.swift; sourceTree = "<group>"; };
 		0D17BB2A2CB46F9C00761191 /* VestimentaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestimentaView.swift; sourceTree = "<group>"; };
+		0D27A5BB2CBDA85500362962 /* audio_en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_en.mp3; sourceTree = "<group>"; };
+		0D27A5BD2CBDAB2200362962 /* audio_mam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_mam.mp3; sourceTree = "<group>"; };
 		0D583F832C8BACE3009B58E7 /* CulturaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturaView.swift; sourceTree = "<group>"; };
 		0D80397B2C87A6DD00BAFA32 /* InicioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioView.swift; sourceTree = "<group>"; };
+		0D9B0DF12CBDA4DC00A6F79F /* audio_es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_es.mp3; sourceTree = "<group>"; };
 		0DC125DF2C920DDF001F5D37 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		0DC125E12C920F93001F5D37 /* translations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translations.json; sourceTree = "<group>"; };
 		0DFACDC12C8A335200DA9269 /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
@@ -176,6 +182,9 @@
 				0DFEDC9E2C920BE100EF63DB /* PalabrasView.swift */,
 				0DFEDCA02C920C1100EF63DB /* TradicionesView.swift */,
 				0DC125DF2C920DDF001F5D37 /* TranslationService.swift */,
+				0D9B0DF12CBDA4DC00A6F79F /* audio_es.mp3 */,
+				0D27A5BB2CBDA85500362962 /* audio_en.mp3 */,
+				0D27A5BD2CBDAB2200362962 /* audio_mam.mp3 */,
 			);
 			path = ProjectMam;
 			sourceTree = "<group>";
@@ -324,7 +333,10 @@
 				0D136D7A2C8127280066E64E /* Preview Assets.xcassets in Resources */,
 				0D136D772C8127280066E64E /* Assets.xcassets in Resources */,
 				0DC125E22C920F93001F5D37 /* translations.json in Resources */,
+				0D9B0DF22CBDA4DC00A6F79F /* audio_es.mp3 in Resources */,
 				0DFACDC62C8A337100DA9269 /* mam.json in Resources */,
+				0D27A5BE2CBDAB2200362962 /* audio_mam.mp3 in Resources */,
+				0D27A5BC2CBDA85500362962 /* audio_en.mp3 in Resources */,
 				0DFACDC42C8A336300DA9269 /* es.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

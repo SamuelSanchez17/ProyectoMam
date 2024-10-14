@@ -31,7 +31,7 @@ struct FrasesView: View {
                 .buttonStyle(PlainButtonStyle())
                 .offset(x: -790, y: -160)
             }
-            .offset(x: 80, y: -90)
+            .offset(x: 80, y: 30)
             
             VStack {
                 HStack {
@@ -108,7 +108,7 @@ struct FrasesView: View {
                     .padding()
                 }
             }
-            .offset(x: 0, y: 120)
+            .offset(x: 0, y: 200)
             
             HStack(spacing: 20) {
                 Button(action: {
@@ -126,8 +126,10 @@ struct FrasesView: View {
                 .offset(x: 500, y: 350)
             }
             .padding()
+            HStack{
+                LanguageSwitcher()
+            }.offset(x:470,y:-350)
         }
-        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 }
 

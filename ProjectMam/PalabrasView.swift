@@ -150,8 +150,9 @@ struct PalabrasView: View {
                     .disabled(selectedAnswerIndex == nil || !checkedAnswer) // Deshabilita si no hay respuesta seleccionada o no se ha comprobado
                 }
                 .padding(.bottom, 20)
-                .offset(x: 500, y: 10)
+                .offset(x: 500, y: -70)
             }
+            .offset(x:0,y:80)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
             .alert(isPresented: $showResult) {
@@ -171,11 +172,14 @@ struct PalabrasView: View {
                     resetGame() // Llama a la función de reinicio
                 }
             }
+            HStack{
+                LanguageSwitcher()
+            }.offset(x:500,y:-360)
         }
         .onAppear {
             loadNextPhrase()
         }
-        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
+        
     }
 
     private func loadNextPhrase() {

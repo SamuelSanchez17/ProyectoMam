@@ -27,44 +27,19 @@ struct ArquitecturaView: View {
                     )
                     .shadow(color: .black, radius: 10, x: 0, y: 0)
             }
-            .offset(x: 0, y: -350) // Ajusta los parámetros según tus necesidades
+            .offset(x: 0, y: -270) // Ajusta los parámetros según tus necesidades
             
             VStack {
                 HStack {
                     Text("Texto sobre las tradiciones")
                         .font(.custom("Futura", size: 30))
-                        .offset(x: 150, y: 0)
-                    Circle()
-                        .frame(width: 300, height: 300)
-                        .foregroundColor(.blue)
-                        .overlay(
-                            Circle() // Círculo adicional para el borde
-                                .stroke(Color.black, lineWidth: 10) // Color y grosor del borde
-                        )
-                        .offset(x: 220, y: -150)
+                        .offset(x: 0, y: 0)
                 }
             }
-            
-            HStack(spacing: 20) {
-                // Botón con flecha a la izquierda
-                Button(action: {
-                    print("Botón de flecha izquierda presionado")
-                    // Acción del botón izquierda
-                }) {
-                    Image(systemName: "arrow.left")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(20)
-                        .frame(width: 60, height: 60)
-                        .background(Color(red: 0.8, green: 0.2, blue: 0.2)) // Color RGB
-                        .clipShape(Circle())
-                        .foregroundColor(.white)
-                }
-                .offset(x: -530, y: -350) // Ajusta el offset para la flecha izquierda
-            }
-            .padding()
+            HStack{
+                LanguageSwitcher()
+            }.offset(x:490, y:-350)
         }
-        .navigationBarItems(trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
     }
 }
 

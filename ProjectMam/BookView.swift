@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 struct BookView: View {
     @EnvironmentObject var languageManager: LanguageManager
@@ -11,6 +12,11 @@ struct BookView: View {
     @State private var frameBorderColor: Color = .blue
     @State private var bookPages: [String] = []
     
+    // Propiedad para el reproductor de audio
+    @State private var audioPlayer: AVAudioPlayer?
+    @State private var isAudioPlaying = false  // Estado para saber si el audio está reproduciéndose
+    @State private var showControls = false      // Control para mostrar los botones de pausa y reanudar
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -139,13 +145,59 @@ struct BookView: View {
                     .padding()
                     .background(Color.white.opacity(0.5))  // Fondo para mejorar visibilidad de los botones
                 }
+                
+                VStack {
+                    // Botón de bocina
+                    Button(action: {
+                        if !isAudioPlaying {
+                            playSound(for: languageManager.selectedLanguage)
+                            showControls = true  // Muestra los controles al presionar la bocina
+                        }
+                    }) {
+                        Image("Bocina")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .padding()  // Añadir padding para mejorar la área clickable
+                    }
+                    
+                    // Botones de pausa y reanudar siempre visibles si el audio está reproduciéndose
+                    if showControls {
+                        HStack {
+                            Button(action: {
+                                pauseAudio()
+                            }) {
+                                Text("Pausa")
+                                    .padding()
+                                    .background(Color.red)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            Button(action: {
+                                resumeAudio()
+                            }) {
+                                Text("Reanudar")
+                                    .padding()
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    }
+                }.offset(x: -500, y: -260)
+                
+                HStack {
+                    LanguageSwitcher()
+                }.offset(x: 490, y: -320)
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .navigationTitle(languageManager.getLocalizedText(for: "Historia de la cultura Mam"))
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(trailing: LanguageSwitcher()) // Aquí se agrega el LanguageSwitcher
             .onAppear {
                 loadBookPages()
+            }
+            .onChange(of: languageManager.selectedLanguage) { _ in
+                stopAudioAndHideControls() // Detener audio y ocultar controles al cambiar idioma
+                loadBookPages() // Recargar las páginas al cambiar el idioma
             }
         }
     }
@@ -168,6 +220,51 @@ struct BookView: View {
         pages.append(lastPage)
 
         self.bookPages = pages
+    }
+
+    private func playSound(for language: String) {
+        var audioFileName: String
+        
+        switch language {
+        case "es":
+            audioFileName = "audio_es"
+        case "en":
+            audioFileName = "audio_en"
+        case "mam":
+            audioFileName = "audio_mam"
+        default:
+            return
+        }
+
+        guard let url = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") else {
+            print("No se encontró el archivo \(audioFileName).mp3")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+            isAudioPlaying = true
+        } catch {
+            print("Error al reproducir el audio: \(error.localizedDescription)")
+        }
+    }
+
+    private func pauseAudio() {
+        audioPlayer?.pause()
+        isAudioPlaying = false
+    }
+
+    private func resumeAudio() {
+        audioPlayer?.play()
+        isAudioPlaying = true
+    }
+
+    // Nueva función para detener audio y ocultar controles
+    private func stopAudioAndHideControls() {
+        audioPlayer?.stop()
+        isAudioPlaying = false
+        showControls = false
     }
 }
 
