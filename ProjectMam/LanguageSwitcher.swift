@@ -11,8 +11,8 @@ struct LanguageSwitcher: View {
                 }
             }) {
                 HStack {
+                    Image(systemName: "globe")
                     Text("English")
-                    Image("Mundo")
                 }
             }
             Button(action: {
@@ -21,8 +21,8 @@ struct LanguageSwitcher: View {
                 }
             }) {
                 HStack {
+                    Image(systemName: "globe")
                     Text("Español")
-                    Image("Mundo")
                 }
             }
             Button(action: {
@@ -31,23 +31,34 @@ struct LanguageSwitcher: View {
                 }
             }) {
                 HStack {
+                    Image(systemName: "globe")
                     Text("Mam")
-                    Image("Mundo")
                 }
             }
         } label: {
             HStack {
-                Text(languageManager.getLocalizedText(for: "IDIOMA"))
-                Image("Mundo")
+                Image(systemName: "globe")
                     .resizable()
-                    .frame(width: 25, height: 25)
+                    .frame(width: 18, height: 18)
+                    .foregroundColor(.white)
+                Text(languageManager.getLocalizedText(for: "IDIOMA"))
+                    .foregroundColor(.white)
+                    .font(.system(size: 16, weight: .medium))
+                    .fixedSize(horizontal: true, vertical: false) // Evita que el texto se redimensione
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.white)
+                    .font(.system(size: 16))
             }
-            .foregroundColor(.white)
-            .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-            .cornerRadius(20)
-            .shadow(color: Color.blue.opacity(0.5), radius: 5, x: 0, y: 5)
-            .offset(x:0, y:0)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .frame(width: 180, height: 45) // Fija el tamaño del botón
+            .background(Color(UIColor.darkGray)) // Fondo oscuro
+            .cornerRadius(25)
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
+            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 2)
         }
     }
 }

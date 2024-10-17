@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TraductorView: View {
     @EnvironmentObject var languageManager: LanguageManager
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // Control de la navegación
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State private var sourceLanguage = "es"
     @State private var targetLanguage = "en"
@@ -11,7 +11,7 @@ struct TraductorView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text(languageManager.getLocalizedText(for: "Traductor")) // Localiza el título
+            Text(languageManager.getLocalizedText(for: "Traductor"))
                 .font(.largeTitle)
 
             Picker(languageManager.getLocalizedText(for: "Idioma de origen"), selection: $sourceLanguage) {
@@ -46,46 +46,27 @@ struct TraductorView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.blue, lineWidth: 1)
                 )
-            
+
             Spacer()
         }
         .padding()
-        .navigationBarBackButtonHidden(true) // Oculta el botón <Back predeterminado
+        .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
-            self.presentationMode.wrappedValue.dismiss() // Funcionalidad para regresar a la vista anterior
+            self.presentationMode.wrappedValue.dismiss()
         }) {
-            Image("botonRegreso") // Tu asset personalizado para el botón de retroceso
+            Image("botonRegreso")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
-        }, trailing: LanguageSwitcher()) // Agregar el LanguageSwitcher
+        }, trailing: LanguageSwitcher())
     }
 
     private func translateText() {
-        if sourceLanguage == targetLanguage {
-            translatedText = inputText
-            return
+        TranslationService.shared.translate(inputText, from: sourceLanguage, to: targetLanguage) { translation in
+            DispatchQueue.main.async {
+                translatedText = translation
+            }
         }
-
-        if sourceLanguage == "mam" || targetLanguage == "mam" {
-            // Traducción para el idioma Mam usando JSON
-            translatedText = translateFromJSON(inputText)
-        } else {
-            // Traducción usando el archivo JSON para español e inglés
-            translatedText = translateFromJSON(inputText)
-        }
-    }
-
-    private func translateFromJSON(_ text: String) -> String {
-        let translatedText = TranslationService.shared.translate(text, from: sourceLanguage, to: targetLanguage)
-        return translatedText
     }
 }
 
-// Vista previa para el desarrollo
-struct TraductorView_Previews: PreviewProvider {
-    static var previews: some View {
-        TraductorView()
-            .environmentObject(LanguageManager())
-    }
-}

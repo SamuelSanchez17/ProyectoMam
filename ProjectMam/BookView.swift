@@ -12,15 +12,13 @@ struct BookView: View {
     @State private var frameBorderColor: Color = .blue
     @State private var bookPages: [String] = []
     
-    // Propiedad para el reproductor de audio
     @State private var audioPlayer: AVAudioPlayer?
-    @State private var isAudioPlaying = false  // Estado para saber si el audio está reproduciéndose
-    @State private var showControls = false      // Control para mostrar los botones de pausa y reanudar
+    @State private var isAudioPlaying = false
+    @State private var showControls = false
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Imagen de fondo
                 Image("Rio")
                     .resizable()
                     .scaledToFill()
@@ -28,7 +26,6 @@ struct BookView: View {
                     .opacity(0.3)
                     .edgesIgnoringSafeArea(.all)
 
-                // Contenido del libro (texto)
                 if !bookPages.isEmpty {
                     Text(bookPages[currentPage])
                         .font(.system(size: 22))
@@ -54,11 +51,9 @@ struct BookView: View {
                         .offset(x: geometry.size.width * 0.1, y: geometry.size.height * -0.1)
                 }
 
-                // Botones de navegación
                 VStack {
-                    Spacer()  // Coloca los botones en la parte inferior
+                    Spacer()
                     HStack {
-                        // Botón de atrás
                         Button(action: {
                             if currentPage > 0 {
                                 withAnimation {
@@ -93,7 +88,6 @@ struct BookView: View {
 
                         Spacer()
 
-                        // Botón de siguiente o ir a Cultura
                         if currentPage == bookPages.count - 1 {
                             NavigationLink(destination: CulturaView()) {
                                 HStack {
@@ -143,24 +137,22 @@ struct BookView: View {
                         }
                     }
                     .padding()
-                    .background(Color.white.opacity(0.5))  // Fondo para mejorar visibilidad de los botones
+                    .background(Color.white.opacity(0.5))
                 }
                 
                 VStack {
-                    // Botón de bocina
                     Button(action: {
                         if !isAudioPlaying {
                             playSound(for: languageManager.selectedLanguage)
-                            showControls = true  // Muestra los controles al presionar la bocina
+                            showControls = true
                         }
                     }) {
                         Image("Bocina")
                             .resizable()
                             .frame(width: 50, height: 50)
-                            .padding()  // Añadir padding para mejorar la área clickable
+                            .padding()
                     }
                     
-                    // Botones de pausa y reanudar siempre visibles si el audio está reproduciéndose
                     if showControls {
                         HStack {
                             Button(action: {
@@ -187,7 +179,8 @@ struct BookView: View {
                 
                 HStack {
                     LanguageSwitcher()
-                }.offset(x: 490, y: -320)
+                }.offset(x: 490, y: -400)  // Modificado para ajustar el botón hacia arriba
+                
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .navigationTitle(languageManager.getLocalizedText(for: "Historia de la cultura Mam"))
@@ -196,13 +189,12 @@ struct BookView: View {
                 loadBookPages()
             }
             .onChange(of: languageManager.selectedLanguage) { _ in
-                stopAudioAndHideControls() // Detener audio y ocultar controles al cambiar idioma
-                loadBookPages() // Recargar las páginas al cambiar el idioma
+                stopAudioAndHideControls()
+                loadBookPages()
             }
         }
     }
 
-    // Función para cargar el texto y dividirlo en páginas
     private func loadBookPages() {
         let fullStory = languageManager.getLocalizedText(for: "Historia Mam")
         let pageSize = fullStory.count / 5
@@ -260,17 +252,9 @@ struct BookView: View {
         isAudioPlaying = true
     }
 
-    // Nueva función para detener audio y ocultar controles
     private func stopAudioAndHideControls() {
         audioPlayer?.stop()
         isAudioPlaying = false
         showControls = false
-    }
-}
-
-struct BookView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookView()
-            .environmentObject(LanguageManager())
     }
 }

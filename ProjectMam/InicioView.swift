@@ -5,8 +5,6 @@ struct InicioView: View {
     @State private var hasFinishedReading: Bool = UserDefaults.standard.bool(forKey: "hasFinishedReading")
     
     var body: some View {
-        
-        
         NavigationView {
             ZStack {
                 Image("Ruinas")
@@ -59,54 +57,21 @@ struct InicioView: View {
                     Spacer() // Añade espacio debajo
                 }
                 .padding(.bottom, 50)
-            }
-            .navigationBarItems(trailing:
-                Menu {
-                    Button(action: {
-                        withAnimation{
-                            languageManager.switchLanguage(to: "en")} // Cambiar a inglés
-                    }) {
-                        HStack {
-                            Text("English")
-                            Image("Mundo") // Ícono del sistema "globe"
-                        }
-                    }
-                    Button(action: {
-                        withAnimation{
-                            languageManager.switchLanguage(to: "es")} // Cambiar a español
-                    }) {
-                        HStack {
-                            Text("Español")
-                            Image("Mundo") // Ícono del sistema "globe"
-                        }
-                    }
-                    Button(action: {
-                        withAnimation{
-                            languageManager.switchLanguage(to: "mam")} // Cambiar a Mam
-                    }) {
-                        HStack {
-                            Text("Mam")
-                            Image("Mundo") // Ícono del sistema "globe"
-                        }
-                    }
-                } label: {
+                
+                // Aquí movemos el botón del `LanguageSwitcher` un poco más arriba
+                VStack {
                     HStack {
-                        Text(languageManager.getLocalizedText(for: "IDIOMA"))
-                        Image("Mundo")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            
-                        
+                        Spacer()
+                        LanguageSwitcher() // Llamamos a LanguageSwitcher
+                            .padding(.trailing, 20) // Ajustamos margen derecho
+                            .padding(.top, 10) // Reducimos el margen superior a 10 para moverlo hacia arriba (antes era 60)
                     }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(10)
-                    .shadow(color: Color.blue.opacity(0.5), radius: 5, x: 0, y: 5)
+                    Spacer() // Deja espacio para el resto del contenido
                 }
-            )
+            }
+            .navigationBarHidden(true) // Ocultamos la barra de navegación predeterminada
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // Esto forzará la vista tipo stack (sin sidebar)
+        .navigationViewStyle(StackNavigationViewStyle()) // Mantenemos estilo para que no use sidebar
     }
 }
 
