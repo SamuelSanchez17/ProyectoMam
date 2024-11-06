@@ -179,7 +179,7 @@ struct BookView: View {
                 
                 HStack {
                     LanguageSwitcher()
-                }.offset(x: 490, y: -400)  // Modificado para ajustar el botón hacia arriba
+                }.offset(x: 490, y: -350)  // Modificado para ajustar el botón hacia arriba
                 
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
@@ -257,4 +257,8 @@ struct BookView: View {
         isAudioPlaying = false
         showControls = false
     }
+}
+
+#Preview{
+    BookView().environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
 }

@@ -19,9 +19,7 @@ struct LeccionView: View {
                     
                     VStack {
                         // Botón Abecedario básico
-                        Button(action: {
-                            navigateToAbecedario = true // Activa la navegación
-                        }) {
+                        NavigationLink(destination: AbecedarioView()) {
                             ZStack {
                                 Circle()
                                     .frame(width: 180, height: 180)
@@ -40,14 +38,9 @@ struct LeccionView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                         .offset(x: -270, y: -50) // Ajusta esta posición según la imagen
-                        .navigationDestination(isPresented: $navigateToAbecedario) {
-                            AbecedarioView() // Navega a AbecedarioView
-                        }
 
                         // Botón Frases básicas
-                        Button(action: {
-                            navigateToFrases = true // Activa la navegación a FrasesView
-                        }) {
+                        NavigationLink(destination: FrasesView()) {
                             ZStack {
                                 Circle()
                                     .frame(width: 180, height: 180)
@@ -66,9 +59,6 @@ struct LeccionView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                         .offset(x: -370, y: 50) // Ajusta esta posición según la imagen
-                        .navigationDestination(isPresented: $navigateToFrases) {
-                            FrasesView() // Navega a FrasesView
-                        }
                         
                         // Botón Sonidos
                         ZStack {
@@ -94,10 +84,8 @@ struct LeccionView: View {
                         .offset(x: -240, y: 150) // Ajusta esta posición según la imagen
                         
                         // Botón Sonidos (amarillo)
-                        ZStack {
-                            Button(action: {
-                                navigateToPalabras = true // Activa la navegación a PalabrasView
-                            }) {
+                        NavigationLink(destination: PalabrasView()) {
+                            ZStack {
                                 Circle()
                                     .frame(width: 180, height: 180)
                                     .foregroundColor(.yellow)
@@ -115,9 +103,6 @@ struct LeccionView: View {
                                 .foregroundColor(.white)
                         }
                         .offset(x: -300, y: 250) // Ajusta esta posición según la imagen
-                        .navigationDestination(isPresented: $navigateToPalabras) {
-                            PalabrasView() // Navega a PalabrasView
-                        }
                     }
                     .frame(maxWidth: .infinity)
                 }

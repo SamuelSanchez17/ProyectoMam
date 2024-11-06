@@ -172,9 +172,6 @@ struct PalabrasView: View {
                     resetGame() // Llama a la función de reinicio
                 }
             }
-            HStack{
-                LanguageSwitcher()
-            }.offset(x:500,y:-360)
         }
         .onAppear {
             loadNextPhrase()

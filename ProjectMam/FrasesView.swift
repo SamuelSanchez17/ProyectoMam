@@ -126,9 +126,6 @@ struct FrasesView: View {
                 .offset(x: 500, y: 350)
             }
             .padding()
-            HStack{
-                LanguageSwitcher()
-            }.offset(x:470,y:-350)
         }
     }
 }

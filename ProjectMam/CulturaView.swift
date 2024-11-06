@@ -11,11 +11,8 @@ struct CulturaView: View {
     var buttons: [(imageName: String, text: String, color: Color, action: () -> AnyView)] {
         return [
             (imageName: "Micro", text: languageManager.getLocalizedText(for: "Musica"), color: Color(red: 20/255, green: 145/255, blue: 255/255), action: { AnyView(MusicaView()) }),
-            (imageName: "Dress", text: languageManager.getLocalizedText(for: "Vestimenta"), color: Color(red: 12/255, green: 193/255, blue: 62/255), action: { AnyView(VestimentaView()) }),
-            (imageName: "Casa", text: languageManager.getLocalizedText(for: "Arquitectura"), color: Color(red: 190/255, green: 0/255, blue: 0/255), action: { AnyView(ArquitecturaView()) }),
-            (imageName: "Fork", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { AnyView(GastroView()) }),
-            (imageName: "Trad", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { AnyView(TradicionesView()) }),
-            (imageName: "Tic", text: languageManager.getLocalizedText(for: "Juegos"), color: Color(red: 243/255, green: 42/255, blue: 2/255), action: { AnyView(JuegosView()) }),
+            (imageName: "Tenedor", text: languageManager.getLocalizedText(for: "Gastronomia"), color: Color(red: 259/255, green: 169/255, blue: 0/255), action: { AnyView(GastroView()) }),
+            (imageName: "Tradiciones", text: languageManager.getLocalizedText(for: "Tradiciones"), color: Color(red: 147/255, green: 0/255, blue: 78/255), action: { AnyView(TradicionesView()) }),
             (imageName: "Leccion", text: languageManager.getLocalizedText(for: "Lección"), color: Color(red: 211/255, green: 0/255, blue: 182/255), action: { AnyView(LeccionView()) }),
             (imageName: "Traductor", text: languageManager.getLocalizedText(for: "Traductor"), color: Color(red: 115/255, green: 0/255, blue: 211/255), action: { AnyView(TraductorView()) }),
             (imageName: "Derechos", text: languageManager.getLocalizedText(for: "Derechos"), color: Color(red: 6/255, green: 182/255, blue: 233/255), action: { AnyView(DerechosView()) })
@@ -69,10 +66,11 @@ struct CulturaView: View {
                                 .stroke(Color.white.opacity(0.5), lineWidth: 4)
                         )
                     }
+                    .padding(.vertical, 50)  // Añade padding vertical entre los botones
                 }
             }
             .padding()
-            .offset(y: 50) // Ajusta la posición vertical de la cuadrícula si es necesario
+            .offset(y: 50)  // Ajusta la posición vertical de la cuadrícula si es necesario
             
             // Botón en la esquina superior izquierda
             VStack {

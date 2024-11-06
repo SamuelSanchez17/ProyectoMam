@@ -85,10 +85,6 @@ struct AbecedarioView: View {
                 .offset(x: 450, y: 350)
             }
             .padding()
-            
-            HStack{
-                LanguageSwitcher()
-            }.offset(x:440,y:-330)
         }
         
     }
