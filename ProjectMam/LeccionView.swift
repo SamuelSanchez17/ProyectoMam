@@ -94,13 +94,15 @@ struct LeccionView: View {
                                         Circle()
                                             .stroke(Color.black, lineWidth: 3)
                                     )
+                                
+                                Text(languageManager.getLocalizedText(for: "Leccion"))
+                                    .font(.custom("Futura", size: 15))
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity) // Asegura que el texto se centre dentro del círculo
+                                    .multilineTextAlignment(.center) // Centra el texto si se desborda
                             }
                             .buttonStyle(PlainButtonStyle())
-                            
-                            Text(languageManager.getLocalizedText(for: "Leccion"))
-                                .font(.custom("Futura", size: 15))
-                                .bold()
-                                .foregroundColor(.white)
                         }
                         .offset(x: -300, y: 250) // Ajusta esta posición según la imagen
                     }

@@ -7,11 +7,12 @@ struct BookView: View {
     @State private var isBackButtonPressed = false
     @State private var isNextButtonPressed = false
     @State private var frameWidth: CGFloat = 0.65
-    @State private var frameHeight: CGFloat = 0.9
-    @State private var frameCornerRadius: CGFloat = 15
+    @State private var frameHeight: CGFloat = 0.75
+    @State private var frameCornerRadius: CGFloat = 25
     @State private var frameBorderColor: Color = .blue
     @State private var bookPages: [String] = []
-    
+    @State private var bookImages: [String] = ["imagen1", "imagen2", "imagen3", "imagen4", "imagen5", "imagen6", "imagen7", "imagen8", "imagen9", "imagen10"]
+
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isAudioPlaying = false
     @State private var showControls = false
@@ -27,20 +28,41 @@ struct BookView: View {
                     .edgesIgnoringSafeArea(.all)
 
                 if !bookPages.isEmpty {
-                    Text(bookPages[currentPage])
-                        .font(.system(size: 22))
-                        .padding()
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(frameCornerRadius)
-                        .shadow(radius: 10)
-                        .overlay(
+                    VStack {
+                        ZStack {
+                            // Fondo blanco para los párrafos y la imagen
                             RoundedRectangle(cornerRadius: frameCornerRadius)
-                                .stroke(frameBorderColor, lineWidth: 2)
-                        )
-                        .frame(width: geometry.size.width * frameWidth, height: geometry.size.height * frameHeight)
-                        .animation(.easeInOut(duration: 0.5), value: currentPage)
-                        .transition(currentPage % 2 == 0 ? .slide : .move(edge: .trailing))
-                        .offset(x: geometry.size.width * 0, y: geometry.size.height * -0.1)
+                                .fill(Color.white.opacity(0.8))
+                                .frame(width: geometry.size.width * frameWidth, height: geometry.size.height * frameHeight)
+                                .shadow(radius: 100)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: frameCornerRadius)
+                                        .stroke(frameBorderColor, lineWidth: 2)
+                                )
+                                .offset(y: -55) // Desplazamiento hacia arriba
+
+                            // Contenido del cuadro de texto
+                            VStack {
+                                if currentPage < bookImages.count {
+                                    Image(bookImages[currentPage])
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geometry.size.width * 0.30, height: geometry.size.height * 0.15)
+                                        
+                                        .offset(y: -70) // Desplazamiento hacia la izquierda
+                                }
+
+                                Text(bookPages[currentPage])
+                                    .font(.system(size: 24))
+                                    .padding(.horizontal, 0)
+                                    .frame(maxWidth: geometry.size.width * 0.6) // Limita el ancho del texto
+                                    .multilineTextAlignment(.center)
+                                    .animation(.easeInOut(duration: 0.5), value: currentPage)
+                                    .transition(currentPage % 2 == 0 ? .slide : .move(edge: .trailing))
+                            }
+                        }
+                        .padding(.bottom, 30) // Ajusta la separación del cuadro con los botones
+                    }
                 } else {
                     Text("Cargando historia...")
                         .padding()
@@ -48,7 +70,7 @@ struct BookView: View {
                         .cornerRadius(frameCornerRadius)
                         .shadow(radius: 10)
                         .frame(width: geometry.size.width * frameWidth, height: geometry.size.height * frameHeight)
-                        .offset(x: geometry.size.width * 0.1, y: geometry.size.height * -0.1)
+                        .offset(y: geometry.size.height * -0.05)
                 }
 
                 VStack {
@@ -179,7 +201,7 @@ struct BookView: View {
                 
                 HStack {
                     LanguageSwitcher()
-                }.offset(x: 490, y: -350)  // Modificado para ajustar el botón hacia arriba
+                }.offset(x: 490, y: -350)
                 
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
@@ -197,11 +219,11 @@ struct BookView: View {
 
     private func loadBookPages() {
         let fullStory = languageManager.getLocalizedText(for: "Historia Mam")
-        let pageSize = fullStory.count / 5
+        let pageSize = fullStory.count / 10
         var pages: [String] = []
 
         var currentIndex = fullStory.startIndex
-        for _ in 0..<4 {
+        for _ in 0..<9 {
             let endIndex = fullStory.index(currentIndex, offsetBy: pageSize, limitedBy: fullStory.endIndex) ?? fullStory.endIndex
             let page = String(fullStory[currentIndex..<endIndex])
             pages.append(page)
@@ -241,6 +263,12 @@ struct BookView: View {
             print("Error al reproducir el audio: \(error.localizedDescription)")
         }
     }
+    
+    private func stopAudioAndHideControls() {
+        audioPlayer?.stop()
+        isAudioPlaying = false
+        showControls = false
+    }
 
     private func pauseAudio() {
         audioPlayer?.pause()
@@ -252,12 +280,10 @@ struct BookView: View {
         isAudioPlaying = true
     }
 
-    private func stopAudioAndHideControls() {
-        audioPlayer?.stop()
-        isAudioPlaying = false
-        showControls = false
-    }
+
 }
+
+
 
 #Preview{
     BookView().environmentObject(LanguageManager()) // Proporciona el EnvironmentObject aquí
